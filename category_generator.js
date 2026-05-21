@@ -335,6 +335,7 @@ function generatePage({
   <meta name="twitter:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta name="robots" content="index, follow"/>
   <link rel="alternate" hreflang="en" href="${SITE_URL}${canonicalPath}"/>
+  <link rel="alternate" hreflang="x-default" href="${SITE_URL}${canonicalPath}"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -405,7 +406,7 @@ function generatePage({
 
   <footer>
     <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">WordleChinese.com</a> ·
-    <a href="/privacy.html" style="color:#6b7280">Privacy Policy</a></p>
+    <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>
 </html>`;
@@ -520,7 +521,7 @@ function generateIndexPage(categories) {
 
   <footer>
     <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">WordleChinese.com</a> ·
-    <a href="/privacy.html" style="color:#6b7280">Privacy Policy</a></p>
+    <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>
 </html>`;

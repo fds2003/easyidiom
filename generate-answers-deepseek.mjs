@@ -245,7 +245,7 @@ ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div c
 <li><strong>Spaced repetition:</strong> Come back tomorrow and see if you still remember it without looking.</li>
 </ul>
 <p style="margin-top:16px;padding:12px;background:#f0f9ff;border-radius:6px;font-size:14px">
-📖 <a href="/learn-chinese-with-wordle.html" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Wordle →</a></p>
+📖 <a href="/learn-chinese-with-wordle" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Wordle →</a></p>
 </div>
 <div class="section" style="border-top:2px solid #e5e7eb;padding-top:16px;margin-top:16px">
 <h2 style="font-size:16px;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">🔗 Related</h2>
@@ -285,9 +285,9 @@ function generateSitemaps(generatedDates) {
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wordlechinese.com/</loc><lastmod>${lastmod}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://wordlechinese.com/learn-chinese-with-wordle.html</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://wordlechinese.com/study/chinese-wordle-hsk-guide.html</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://wordlechinese.com/privacy.html</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://wordlechinese.com/learn-chinese-with-wordle</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://wordlechinese.com/study/chinese-wordle-hsk-guide</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://wordlechinese.com/privacy</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>`
   );
 

@@ -56,7 +56,7 @@ export function formatDisplayLong(iso) {
 
 export function buildHomePrerenderHtml() {
   const games = loadGames();
-  const dates = recentAnswerIsoDates(8);
+  const dates = recentAnswerIsoDates(8).filter((iso) => iso >= '2026-05-11');
   const li = dates
     .map(
       (iso) =>
@@ -67,7 +67,7 @@ export function buildHomePrerenderHtml() {
     .join('\n');
 
   return `<section class="home-prerender" aria-labelledby="home-prerender-heading">
-    <h2 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h2>
+    <h1 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h1>
     <p>Play the free <strong>Chinese Wordle</strong> / <strong>mandarin wordle</strong> at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of <strong>${games.length.toLocaleString(
       'en-US',
     )}</strong> high-frequency idioms.</p>
@@ -76,12 +76,12 @@ export function buildHomePrerenderHtml() {
     <ul class="home-prerender-links">
 ${li}
     </ul>
-    <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-wordle.html">How to learn Chinese with Wordle</a> · <a href="https://wordlechinese.com/study/chinese-wordle-hsk-guide.html">HSK study &amp; chengyu hub</a></p>
+    <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-wordle">How to learn Chinese with Wordle</a> · <a href="https://wordlechinese.com/study/chinese-wordle-hsk-guide">HSK study &amp; chengyu hub</a></p>
   </section>`;
 }
 
 export function buildHskStudyGuideHtml() {
-  const dates = recentAnswerIsoDates(21);
+  const dates = recentAnswerIsoDates(21).filter((iso) => iso >= '2026-05-11');
   const links = dates
     .map(
       (iso) =>
@@ -97,7 +97,7 @@ export function buildHskStudyGuideHtml() {
     name: 'HSK, Mandarin Wordle & Chinese idiom study hub',
     description:
       'Connect HSK vocabulary study with Wordle Chinese answer archives and daily mandarin wordle puzzles.',
-    url: 'https://wordlechinese.com/study/chinese-wordle-hsk-guide.html',
+    url: 'https://wordlechinese.com/study/chinese-wordle-hsk-guide',
     isPartOf: {
       '@type': 'WebSite',
       name: 'Wordle Chinese',
@@ -110,10 +110,10 @@ export function buildHskStudyGuideHtml() {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HSK, Mandarin Wordle &amp; Chinese Idiom Lists — Wordle Chinese</title>
+  <title>HSK &amp; Chinese Idiom Study Guide — Wordle Chinese</title>
   <meta name="description" content="Study hub for HSK learners using Wordle Chinese: mandarin wordle style daily puzzles plus answer pages with pinyin and examples. Internal links to recent chengyu write-ups." />
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://wordlechinese.com/study/chinese-wordle-hsk-guide.html"/>
+  <link rel="canonical" href="https://wordlechinese.com/study/chinese-wordle-hsk-guide"/>
   <script type="application/ld+json">${webPageJson}</script>
   <style>
     body{font-family:system-ui,sans-serif;max-width:720px;margin:0 auto;padding:20px;color:#1a1a1a;line-height:1.65}
@@ -134,13 +134,14 @@ export function buildHskStudyGuideHtml() {
       <li><strong>HSK 1–2:</strong> read answer pages for exposure; repeat aloud with pinyin from each page.</li>
       <li><strong>HSK 3–4:</strong> mine example sentences and teach collocations around each idiom.</li>
       <li><strong>HSK 5–6:</strong> assign “explain this chengyu in Chinese” using meanings from the archive.</li>
+      <li><strong>All Levels:</strong> Check out the <a href="https://wordlechinese.com/idioms/">Chinese Idiom Categories</a> categorized by difficulty and theme.</li>
     </ul>
     <h2>Recent answer pages (internal links)</h2>
     <p>Dates below are <strong>UTC calendar days</strong> (same as the live puzzle rollover). Open any date for definitions suitable for lesson snippets:</p>
     <ul>
 ${links}
     </ul>
-    <p><a href="https://wordlechinese.com/learn-chinese-with-wordle.html">← Learn guide</a> · <a href="https://wordlechinese.com/">Play today’s puzzle</a></p>
+    <p><a href="https://wordlechinese.com/learn-chinese-with-wordle">← Learn guide</a> · <a href="https://wordlechinese.com/">Play today’s puzzle</a></p>
   </main>
 </body>
 </html>`;
