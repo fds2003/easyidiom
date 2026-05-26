@@ -260,7 +260,7 @@ ${isFirst ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/ans
 ${isLast ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answer/${nextStr}/">${nextStr} →</a>`}
 </div>
 <footer style="text-align:center;margin-top:40px;color:#9ca3af;font-size:13px">
-<p>© ${new Date().getUTCFullYear()} <a href="https://wordlechinese.com" style="color:#6b7280">Wordle Chinese</a> · <a href="/privacy.html" style="color:#6b7280">Privacy Policy</a></p>
+<p>© ${new Date().getUTCFullYear()} <a href="https://wordlechinese.com" style="color:#6b7280">Wordle Chinese</a> · <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
 </footer>
 </body>
 </html>`;

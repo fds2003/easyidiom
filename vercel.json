@@ -2,6 +2,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)",
+      "destination": "/study/chinese-wordle-hsk-guide",
+      "permanent": true
+    },
+    {
+      "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)/",
+      "destination": "/study/chinese-wordle-hsk-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/((?!.*\\..*).*)", "destination": "/index.html" }
   ]

@@ -73,9 +73,35 @@ export function buildHomePrerenderHtml() {
     )}</strong> high-frequency idioms.</p>
     <p>Today’s puzzle uses the same daily queue as the web app (since Jan&nbsp;27,&nbsp;2022&nbsp;UTC; new puzzle at 00:00&nbsp;UTC). Open the board below to play — <strong>no answer spoilers here.</strong></p>
     <h3>Recent answer pages (UTC dates; meanings, examples &amp; pinyin)</h3>
-    <ul class="home-prerender-links">
+    <ul class="home-prerender-links" id="home-recent-answer-links">
 ${li}
     </ul>
+    <script>
+    (function() {
+      var container = document.getElementById("home-recent-answer-links");
+      if (!container) return;
+      var START_DATE_UTC = Date.UTC(2026, 4, 11);
+      var now = new Date();
+      var todayMs = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+      var dates = [];
+      for (var i = 0; i < 8; i++) {
+        var ms = todayMs - i * 86400000;
+        if (ms < START_DATE_UTC) break;
+        var d = new Date(ms);
+        var y = d.getUTCFullYear();
+        var m = String(d.getUTCMonth() + 1).padStart(2, '0');
+        var day = String(d.getUTCDate()).padStart(2, '0');
+        var iso = y + '-' + m + '-' + day;
+        var display = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+        dates.push({ iso: iso, display: display });
+      }
+      if (dates.length > 0) {
+        container.innerHTML = dates.map(function(item) {
+          return '      <li><a href="https://wordlechinese.com/answer/' + item.iso + '/">' + item.display + '</a></li>';
+        }).join('\\n');
+      }
+    })();
+    </script>
     <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-wordle">How to learn Chinese with Wordle</a> · <a href="https://wordlechinese.com/study/chinese-wordle-hsk-guide">HSK study &amp; chengyu hub</a></p>
   </section>`;
 }
@@ -138,9 +164,35 @@ export function buildHskStudyGuideHtml() {
     </ul>
     <h2>Recent answer pages (internal links)</h2>
     <p>Dates below are <strong>UTC calendar days</strong> (same as the live puzzle rollover). Open any date for definitions suitable for lesson snippets:</p>
-    <ul>
+    <ul id="hsk-recent-answer-links">
 ${links}
     </ul>
+    <script>
+    (function() {
+      var container = document.getElementById("hsk-recent-answer-links");
+      if (!container) return;
+      var START_DATE_UTC = Date.UTC(2026, 4, 11);
+      var now = new Date();
+      var todayMs = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+      var dates = [];
+      for (var i = 0; i < 21; i++) {
+        var ms = todayMs - i * 86400000;
+        if (ms < START_DATE_UTC) break;
+        var d = new Date(ms);
+        var y = d.getUTCFullYear();
+        var m = String(d.getUTCMonth() + 1).padStart(2, '0');
+        var day = String(d.getUTCDate()).padStart(2, '0');
+        var iso = y + '-' + m + '-' + day;
+        var display = d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+        dates.push({ iso: iso, display: display });
+      }
+      if (dates.length > 0) {
+        container.innerHTML = dates.map(function(item) {
+          return '<li><a href="https://wordlechinese.com/answer/' + item.iso + '/">' + item.display + ' — read answer &amp; example</a></li>';
+        }).join('\\n');
+      }
+    })();
+    </script>
     <p><a href="https://wordlechinese.com/learn-chinese-with-wordle">← Learn guide</a> · <a href="https://wordlechinese.com/">Play today’s puzzle</a></p>
   </main>
 </body>
