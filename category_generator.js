@@ -464,6 +464,35 @@ function generateIndexPage(categories) {
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Chinese Idiom Categories | WordleChinese.com",
+    "description": "Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Wordle Chinese daily.",
+    "url": "${SITE_URL}/idioms/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Wordle Chinese",
+        "item": "${SITE_URL}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Idioms",
+        "item": "${SITE_URL}/idioms/"
+      }
+    ]
+  }
+  </script>
   <style>
     body{font-family:system-ui,sans-serif;max-width:700px;margin:0 auto;padding:20px;color:#1a1a1a}
     header{text-align:center;border-bottom:2px solid #eee;padding-bottom:16px;margin-bottom:24px}

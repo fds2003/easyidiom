@@ -67,7 +67,7 @@ export function buildHomePrerenderHtml() {
     .join('\n');
 
   return `<section class="home-prerender" aria-labelledby="home-prerender-heading">
-    <h1 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h1>
+    <h2 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h2>
     <p>Play the free <strong>Chinese Wordle</strong> / <strong>mandarin wordle</strong> at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of <strong>${games.length.toLocaleString(
       'en-US',
     )}</strong> high-frequency idioms.</p>

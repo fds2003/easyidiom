@@ -112,7 +112,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
   const h1Text = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin})`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Wordle Chinese answer for ${displayDate}: ${idiom} (${info.pinyin}) — ${info.meaning}`;
+  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation, and final idiom answer here.`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -174,18 +174,20 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>${h1Text}</title>
-<meta name="description" content="Wordle Chinese answer for ${displayDate}: ${idiom} (${info.pinyin}) — ${info.meaning} Hints, meaning &amp; example. Play today's puzzle at wordlechinese.com!"/>
+<meta name="description" content="${articleDescription}"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://wordlechinese.com/answer/${dateStr}/"/>
+<link rel="alternate" hreflang="en" href="https://wordlechinese.com/answer/${dateStr}/"/>
+<link rel="alternate" hreflang="x-default" href="https://wordlechinese.com/answer/${dateStr}/"/>
 <meta property="og:title" content="${h1Text}"/>
-<meta property="og:description" content="Wordle Chinese answer for ${displayDate}: ${idiom} (${info.pinyin}) — ${info.meaning} Hints, meaning &amp; example. Play today's puzzle at wordlechinese.com!"/>
+<meta property="og:description" content="${articleDescription}"/>
 <meta property="og:url" content="https://wordlechinese.com/answer/${dateStr}/"/>
 <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="${h1Text}"/>
-<meta name="twitter:description" content="Wordle Chinese answer for ${displayDate}: ${idiom} (${info.pinyin}) — ${info.meaning} Hints, meaning &amp; example. Play today's puzzle at wordlechinese.com!"/>
+<meta name="twitter:description" content="${articleDescription}"/>
 <meta name="twitter:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
 <script type="application/ld+json">${articleJSON}</script>
 <script type="application/ld+json">${faqJSON}</script>

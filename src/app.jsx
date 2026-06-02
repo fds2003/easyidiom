@@ -486,10 +486,12 @@ export function App() {
     if (valid) {
       row.s = true;
       setBoard([...board]);
+      fireEvent('submit_guess', { props: { attempt: currentStep + 1 } });
     } else {
       setTimeout(() => {
         setShowError(true);
       }, 10);
+      fireEvent('invalid_guess', { props: { word: currentIdiom } });
     }
     console.log({ currentIdiom, valid });
   };
@@ -504,15 +506,18 @@ export function App() {
       timeout = setTimeout(() => {
         setShowModal('won');
       }, 600);
+      const attempts = board.filter((row) => row.s).length;
+      fireEvent('game_completed', { props: { status: 'won', attempts: attempts } });
     } else if (gameState === 'lost') {
       setShowModal('lost');
+      fireEvent('game_completed', { props: { status: 'lost', attempts: MAX_STEPS } });
     } else {
       setShowModal(false);
     }
     return () => {
       clearTimeout(timeout);
     };
-  }, [gameState]);
+  }, [gameState, board]);
 
   const confettiFired = useRef(false);
   useEffect(() => {
@@ -739,6 +744,14 @@ export function App() {
     const hint = hints[hintIndex.current];
     hintIndex.current = (hintIndex.current + 1) % hints.length;
     alert(hint);
+
+    let hintType = 'other';
+    if (hint.indexOf('ℹ️') !== -1) hintType = 'definition';
+    else if (hint.indexOf('Absent') !== -1 || hint.indexOf('absent') !== -1) hintType = 'absent_letter';
+    else if (hint.indexOf('Present') !== -1 || hint.indexOf('present') !== -1) hintType = 'present_letter';
+    else if (hint.indexOf('Pinyin') !== -1 || hint.indexOf('pinyin') !== -1 || hint.indexOf('initials') !== -1) hintType = 'pinyin';
+
+    fireEvent('view_hint', { props: { hint_type: hintType } });
   };
 
   // Limit number of toasts
