@@ -68,10 +68,11 @@ export function buildHomePrerenderHtml() {
 
   return `<section class="home-prerender" aria-labelledby="home-prerender-heading">
     <h2 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h2>
-    <p>Play the free <strong>Chinese Wordle</strong> / <strong>mandarin wordle</strong> at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of <strong>${games.length.toLocaleString(
+    <p>Play the free <strong>Chinese Wordle</strong> / <strong>mandarin wordle</strong> / <strong>hanzi wordle</strong> at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of <strong>${games.length.toLocaleString(
       'en-US',
     )}</strong> high-frequency idioms.</p>
     <p>Today’s puzzle uses the same daily queue as the web app (since Jan&nbsp;27,&nbsp;2022&nbsp;UTC; new puzzle at 00:00&nbsp;UTC). Open the board below to play — <strong>no answer spoilers here.</strong></p>
+    <p>If you are looking for a <strong>wordle chino</strong> (wordle en español) to learn and play with Chinese characters and pinyin, this daily puzzle is the perfect tool.</p>
     <h3>Recent answer pages (UTC dates; meanings, examples &amp; pinyin)</h3>
     <ul class="home-prerender-links" id="home-recent-answer-links">
 ${li}
