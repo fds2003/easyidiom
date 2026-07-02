@@ -816,6 +816,18 @@ export function App() {
 
   return (
     <>
+      {currentGame.isArchive && (
+        <div class="archive-banner">
+          <span>
+            📅 {t('ui.playingArchiveDate', 'Playing archived puzzle from {{date}}', {
+              date: currentGame.dateStr,
+            })}
+          </span>
+          <a href="./" class="back-home-btn">
+            {t('ui.playTodayGame', "Play Today's Game")}
+          </a>
+        </div>
+      )}
       <header>
         <div class="inner">
           <button

@@ -112,7 +112,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
   const h1Text = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin})`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation, and final idiom answer here.`;
+  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com!`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -220,11 +220,11 @@ summary::before{content:"🔍 "}
 <p style="margin:8px 0 0;color:#6b7280;font-size:14px;">Daily Chinese Idiom Wordle Game</p>
 </header>
 <h1 style="text-align:center;font-size:22px;">${h1Text}</h1>
-<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com">Play Today's Game</a></div>
+<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com/?date=${dateStr}">Play This Day's Game</a></div>
 <div class="chars">
 ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div class="pinyin">${pinyins[i] || ''}</div></div>`).join('')}
 </div>
-<a class="play-btn" href="https://wordlechinese.com">▶ Play Today's Wordle Chinese</a>
+<a class="play-btn" href="https://wordlechinese.com/?date=${dateStr}">▶ Play This Day's Game (${dateStr})</a>
 <div class="section">
 <h2>📖 Meaning <span class="badge ${difficulty}">${difficulty}</span></h2>
 <p><strong>${idiom}</strong> (${info.pinyin})</p>
@@ -270,18 +270,23 @@ ${isLast ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answ
 
 // ─── 4. 生成 sitemap（只包含实际存在的日期）──────────────────
 function generateSitemaps(generatedDates) {
-  const lastmod = utcMsToDateStr(getTodayUtcMs());
+  const todayUtcMs = getTodayUtcMs();
+  const todayStr = utcMsToDateStr(todayUtcMs);
 
-  // answer-sitemap.xml：只写已生成的日期
-  const entries = generatedDates.map(ds =>
+  // 过滤出今天及以前的日期，防止未来预生成的页面被提前抓取导致零点击曝光
+  const activeDates = generatedDates.filter(ds => ds <= todayStr);
+  const lastmod = todayStr;
+
+  // answer-sitemap.xml：只写已发布（今天及以前）的日期
+  const entries = activeDates.map(ds =>
     `  <url><loc>https://wordlechinese.com/answer/${ds}/</loc><lastmod>${ds}</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>`
   ).join('\n');
 
   fs.writeFileSync('public/answer-sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>`
   );
-  const lastDate = generatedDates.length ? generatedDates[generatedDates.length - 1] : '(none)';
-  console.log(`📄 answer-sitemap.xml (${generatedDates.length} URLs, up to ${lastDate})`);
+  const lastDate = activeDates.length ? activeDates[activeDates.length - 1] : '(none)';
+  console.log(`📄 answer-sitemap.xml (${activeDates.length} URLs, up to ${lastDate})`);
 
   fs.writeFileSync('public/sitemap-home.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
@@ -298,6 +303,7 @@ function generateSitemaps(generatedDates) {
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap><loc>https://wordlechinese.com/sitemap-home.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
   <sitemap><loc>https://wordlechinese.com/answer-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
+  <sitemap><loc>https://wordlechinese.com/category-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
 </sitemapindex>`
   );
   console.log(`📄 sitemap.xml + sitemap-home.xml`);

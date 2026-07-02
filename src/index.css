@@ -1039,3 +1039,38 @@ a.button.strong {
 .input-file-button input[type='file'] {
   display: none;
 }
+
+.archive-banner {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5em 1em;
+  font-size: 0.85em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  max-width: 35.3em;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.archive-banner span {
+  font-weight: bold;
+}
+
+.archive-banner .back-home-btn {
+  background-color: var(--correct-color);
+  color: var(--letter-state-text-color);
+  text-decoration: none;
+  padding: 0.25em 0.75em;
+  border-radius: 0.4em;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: opacity 0.2s;
+  border: 1px solid var(--letter-state-border-color);
+}
+
+.archive-banner .back-home-btn:hover {
+  opacity: 0.9;
+}
