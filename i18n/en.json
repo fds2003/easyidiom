@@ -73,6 +73,9 @@
     "playTodayGame": "Play today's game!",
     "promptIdiom": "Enter idiom ID/URL:",
     "soundEffects": "Sound effects",
-    "startPlay": "Let's play!"
+    "startPlay": "Let's play!",
+    "subscribeSuccess": "Thanks! We will notify you when a new puzzle is available.",
+    "notifyMe": "Notify Me 🔔",
+    "playAgain": "Play Again"
   }
 }

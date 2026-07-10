@@ -15,6 +15,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!.*\\..*).*)", "destination": "/index.html" }
+    { "source": "/((?!.*\\..*|es|it|study|answer|idioms|learn-chinese-with-wordle|privacy)(.*)*)", "destination": "/index.html" }
   ]
 }

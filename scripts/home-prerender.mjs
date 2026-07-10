@@ -67,12 +67,12 @@ export function buildHomePrerenderHtml() {
     .join('\n');
 
   return `<section class="home-prerender" aria-labelledby="home-prerender-heading">
-    <h2 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle</h2>
+    <h2 id="home-prerender-heading">Chinese Wordle &amp; Mandarin Wordle — Free Daily Chinese Idiom Puzzle | 成语猜词 · 每日一成语</h2>
     <p>Play the free <strong>Chinese Wordle</strong> / <strong>mandarin wordle</strong> / <strong>hanzi wordle</strong> at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of <strong>${games.length.toLocaleString(
       'en-US',
-    )}</strong> high-frequency idioms.</p>
-    <p>Today’s puzzle uses the same daily queue as the web app (since Jan&nbsp;27,&nbsp;2022&nbsp;UTC; new puzzle at 00:00&nbsp;UTC). Open the board below to play — <strong>no answer spoilers here.</strong></p>
-    <p>If you are looking for a <strong>wordle chino</strong> (wordle en español) to learn and play with Chinese characters and pinyin, this daily puzzle is the perfect tool.</p>
+    )}</strong> high-frequency idioms. 免费在线玩中文成语Wordle——每日一成语，6次猜词机会，拼音键盘，7000+成语词库。</p>
+    <p>Today's puzzle uses the same daily queue as the web app (since Jan&nbsp;27,&nbsp;2022&nbsp;UTC; new puzzle at 00:00&nbsp;UTC). Open the board below to play — <strong>no answer spoilers here.</strong></p>
+    <p>If you are looking for a <strong>wordle chino</strong> (palabra del día en chino) or <strong>wordle en chino</strong> to learn and play with Chinese characters and pinyin, this daily puzzle is the perfect tool. Auch verfügbar als <strong>汉字游戏</strong> (Hanzi game).</p>
     <h3>Recent answer pages (UTC dates; meanings, examples &amp; pinyin)</h3>
     <ul class="home-prerender-links" id="home-recent-answer-links">
 ${li}
@@ -103,7 +103,7 @@ ${li}
       }
     })();
     </script>
-    <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-wordle">How to learn Chinese with Wordle</a> · <a href="https://wordlechinese.com/study/chinese-wordle-hsk-guide">HSK study &amp; chengyu hub</a></p>
+    <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-wordle">How to learn Chinese with Wordle</a> · <a href="https://wordlechinese.com/study/chinese-wordle-hsk-guide">HSK study &amp; chengyu hub</a> · <a href="https://wordlechinese.com/idioms/">成语分类 Browse Idioms</a></p>
   </section>`;
 }
 
@@ -160,7 +160,7 @@ export function buildHskStudyGuideHtml() {
     <ul>
       <li><strong>HSK 1–2:</strong> read answer pages for exposure; repeat aloud with pinyin from each page.</li>
       <li><strong>HSK 3–4:</strong> mine example sentences and teach collocations around each idiom.</li>
-      <li><strong>HSK 5–6:</strong> assign “explain this chengyu in Chinese” using meanings from the archive.</li>
+      <li><strong>HSK 5–6:</strong> assign "explain this chengyu in Chinese" using meanings from the archive.</li>
       <li><strong>All Levels:</strong> Check out the <a href="https://wordlechinese.com/idioms/">Chinese Idiom Categories</a> categorized by difficulty and theme.</li>
     </ul>
     <h2>Recent answer pages (internal links)</h2>
@@ -194,7 +194,7 @@ ${links}
       }
     })();
     </script>
-    <p><a href="https://wordlechinese.com/learn-chinese-with-wordle">← Learn guide</a> · <a href="https://wordlechinese.com/">Play today’s puzzle</a></p>
+    <p><a href="https://wordlechinese.com/learn-chinese-with-wordle">← Learn guide</a> · <a href="https://wordlechinese.com/">Play today's puzzle</a></p>
   </main>
 </body>
 </html>`;

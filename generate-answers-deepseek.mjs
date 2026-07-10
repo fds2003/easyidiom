@@ -111,8 +111,9 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
   });
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
   const h1Text = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin})`;
+  const seoTitle = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com!`;
+  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -120,7 +121,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
   const articleJSON = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: h1Text,
+    headline: seoTitle,
     description: articleDescription,
     datePublished: `${dateStr}T00:00:00.000Z`,
     dateModified: `${dateStr}T00:00:00.000Z`,
@@ -173,20 +174,20 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>${h1Text}</title>
+<title>${seoTitle}</title>
 <meta name="description" content="${articleDescription}"/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://wordlechinese.com/answer/${dateStr}/"/>
+<meta property="og:url" content="${pageUrl}"/>
+<link rel="canonical" href="${pageUrl}"/>
 <link rel="alternate" hreflang="en" href="https://wordlechinese.com/answer/${dateStr}/"/>
 <link rel="alternate" hreflang="x-default" href="https://wordlechinese.com/answer/${dateStr}/"/>
-<meta property="og:title" content="${h1Text}"/>
+<meta property="og:title" content="${seoTitle}"/>
 <meta property="og:description" content="${articleDescription}"/>
-<meta property="og:url" content="https://wordlechinese.com/answer/${dateStr}/"/>
 <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="${h1Text}"/>
+<meta name="twitter:title" content="${seoTitle}"/>
 <meta name="twitter:description" content="${articleDescription}"/>
 <meta name="twitter:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
 <script type="application/ld+json">${articleJSON}</script>
@@ -253,7 +254,10 @@ ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div c
 <h2 style="font-size:16px;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">🔗 Related</h2>
 <p style="font-size:14px;line-height:2">
 <a href="/idioms/${difficulty}/" style="color:#2563eb;font-weight:600">More ${difficulty} idioms →</a><br/>
-<a href="/idioms/" style="color:#2563eb">Browse all Chinese idiom categories</a>
+<a href="/idioms/" style="color:#2563eb">Browse all Chinese idiom categories (成语分类)</a><br/>
+<a href="/study/chinese-wordle-hsk-guide" style="color:#2563eb">HSK &amp; Mandarin Wordle study guide</a><br/>
+<a href="/learn-chinese-with-wordle" style="color:#2563eb">How to Learn Chinese with Wordle (如何用Wordle学中文)</a><br/>
+<a href="/" style="color:#2563eb">Play today's Wordle Chinese (今日成语猜词)</a>
 </p>
 </div>
 <div class="nav">

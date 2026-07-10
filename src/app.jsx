@@ -1060,14 +1060,28 @@ export function App() {
           <div class="block">
             {/won|lost/i.test(gameState) &&
               getTodayGame().id === currentGame.id && (
-                <p>
-                  <big>
-                    <Trans
-                      i18nKey="ui.nextIdiom"
-                      components={[<Countdown />]}
-                    />
-                  </big>
-                </p>
+                <>
+                  <p>
+                    <big>
+                      <Trans
+                        i18nKey="ui.nextIdiom"
+                        components={[<Countdown />]}
+                      />
+                    </big>
+                  </p>
+                  <p style={{fontSize:'13px',margin:'8px 0'}}>
+                    <a
+                      href={`/#${currentGame.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        location.reload();
+                      }}
+                      style={{fontWeight:'bold',color:'var(--primary-color)'}}
+                    >
+                      ▶ {t('ui.playAgain', 'Play Again')}
+                    </a>
+                  </p>
+                </>
               )}
             <div>
               {getTodayGame().id !== currentGame.id && (
@@ -1198,6 +1212,47 @@ export function App() {
               中文
             </a>
           </p>
+          {skipFirstTime && (
+            <div id="return-user-prompt" class="block" style={{background:'var(--primary-bg-color)',borderRadius:'8px',padding:'12px',margin:'12px 0',textAlign:'center'}}>
+              <p style={{margin:'0 0 8px',fontWeight:'bold',fontSize:'15px'}}>
+                👋 欢迎回来！ / Welcome back!
+              </p>
+              <p style={{margin:'0 0 10px',fontSize:'13px',color:'var(--text-insignificant-color)'}}>
+                Did you play today's puzzle? Come back tomorrow for a new idiom!
+                <br/>你今天玩过今天的成语了吗？明天再来猜新成语！
+              </p>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const email = e.target.email.value;
+                if (email) {
+                  fireEvent('Email Subscribe', { props: { email } });
+                  alert(t('ui.subscribeSuccess', 'Thanks! We will notify you when a new puzzle is available.'));
+                  e.target.reset();
+                }
+              }}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                  style={{
+                    padding:'6px 12px',borderRadius:'4px',border:'1px solid var(--border-color)',
+                    fontSize:'14px',width:'200px',marginRight:'6px'
+                  }}
+                />
+                <button type="submit" style={{
+                  padding:'6px 16px',borderRadius:'4px',border:'none',
+                  background:'var(--button-strong-bg-color)',color:'white',
+                  fontWeight:'bold',cursor:'pointer',fontSize:'14px'
+                }}>
+                  {t('ui.notifyMe', 'Notify Me 🔔')}
+                </button>
+              </form>
+              <p style={{margin:'8px 0 0',fontSize:'11px',color:'var(--text-insignificant-color)'}}>
+                Get daily reminders. Unsubscribe anytime.
+              </p>
+            </div>
+          )}
           {skipFirstTime && gamesPlayedCount > 0 && (
             <div id="stats">
               <p>

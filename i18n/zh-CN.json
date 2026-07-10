@@ -73,6 +73,9 @@
     "playTodayGame": "玩今天的游戏！",
     "promptIdiom": "输入成语 ID/URL：",
     "soundEffects": "声音特效",
-    "startPlay": "让我们玩！"
+    "startPlay": "让我们玩！",
+    "subscribeSuccess": "感谢订阅！有新成语时会通知你。",
+    "notifyMe": "通知我 🔔",
+    "playAgain": "再玩一次"
   }
 }
