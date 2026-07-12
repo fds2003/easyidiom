@@ -110,10 +110,10 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
   });
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
-  const h1Text = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin})`;
-  const seoTitle = `Wordle Chinese Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语答案`;
+  const h1Text = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin})`;
+  const seoTitle = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Wordle Chinese on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const articleDescription = `Need hints or the answer for today's Chinese idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -127,7 +127,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     dateModified: `${dateStr}T00:00:00.000Z`,
     url: pageUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}` },
-    publisher: { '@type': 'Organization', name: 'Wordle Chinese', url: 'https://wordlechinese.com' }
+    publisher: { '@type': 'Organization', name: '成语猜词', url: 'https://wordlechinese.com' }
   });
 
   const faqJSON = JSON.stringify({
@@ -136,22 +136,22 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is Wordle Chinese?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Wordle Chinese is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
+        name: 'What is 成语猜词 (Chinese Idiom Puzzle)?',
+        acceptedAnswer: { '@type': 'Answer', text: '成语猜词 (Chinese Idiom Puzzle) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
       },
       {
         '@type': 'Question',
-        name: `What is today's Wordle Chinese answer for ${dateStr}?`,
-        acceptedAnswer: { '@type': 'Answer', text: `Today's Wordle Chinese answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
+        name: `What is today's 成语猜词 answer for ${dateStr}?`,
+        acceptedAnswer: { '@type': 'Answer', text: `Today's 成语猜词 answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
       },
       {
         '@type': 'Question',
-        name: `Wordle Chinese hint 1 for ${dateStr}`,
+        name: `成语猜词 hint 1 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint1 }
       },
       {
         '@type': 'Question',
-        name: `Wordle Chinese hint 2 for ${dateStr}`,
+        name: `成语猜词 hint 2 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint2 }
       }
     ]
@@ -161,7 +161,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Wordle Chinese', item: 'https://wordlechinese.com/' },
+      { '@type': 'ListItem', position: 1, name: '成语猜词', item: 'https://wordlechinese.com/' },
       { '@type': 'ListItem', position: 2, name: `Answer for ${dateStr}`, item: `https://wordlechinese.com/answer/${dateStr}/` }
     ]
   });
@@ -199,26 +199,27 @@ header{text-align:center;border-bottom:2px solid #eee;padding-bottom:16px;margin
 header a{color:#2563eb;text-decoration:none;font-weight:600}
 .spoiler{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:24px;font-size:14px}
 .chars{display:flex;gap:12px;justify-content:center;margin:24px 0}
-.char-box{text-align:center;border:2px solid #6aaa64;border-radius:8px;padding:12px 16px;background:#6aaa64;color:white}
+.char-box{text-align:center;border:2px solid #2563eb;border-radius:8px;padding:12px 16px;background:#2563eb;color:white}
 .char-box .hanzi{font-size:36px;font-weight:bold;line-height:1}
 .char-box .pinyin{font-size:14px;margin-top:6px;opacity:.9}
 .section{background:#f9fafb;border-radius:8px;padding:20px;margin-bottom:16px}
 .section h2{margin:0 0 10px;font-size:16px;color:#374151;text-transform:uppercase;letter-spacing:.05em}
 .section p{margin:0;line-height:1.6}
 .badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600}
-.easy{background:#dcfce7;color:#166534}.medium{background:#fef9c3;color:#854d0e}.hard{background:#fee2e2;color:#991b1b}
+.easy{background:#dbeafe;color:#1e40af}.medium{background:#fef3c7;color:#854d0e}.hard{background:#f3f4f6;color:#374151}
 details{background:white;border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px}
 summary{font-weight:600;color:#6b7280;cursor:pointer;list-style:none}
 summary::before{content:"🔍 "}
 .nav{display:flex;justify-content:space-between;margin-top:32px;padding-top:16px;border-top:2px solid #eee}
 .nav a{color:#2563eb;text-decoration:none;font-size:14px}
-.play-btn{display:block;text-align:center;background:#6aaa64;color:white;text-decoration:none;padding:14px;border-radius:8px;font-weight:700;font-size:18px;margin:24px 0}
+.play-btn{display:block;text-align:center;background:#2563eb;color:white;text-decoration:none;padding:14px;border-radius:8px;font-weight:700;font-size:18px;margin:24px 0}
+.play-btn:hover{background:#1d4ed8}
 </style>
 </head>
 <body>
 <header>
-<a href="https://wordlechinese.com">🀄 Wordle Chinese</a>
-<p style="margin:8px 0 0;color:#6b7280;font-size:14px;">Daily Chinese Idiom Wordle Game</p>
+<a href="https://wordlechinese.com">🀄 成语猜词</a>
+<p style="margin:8px 0 0;color:#6b7280;font-size:14px;">Daily Chinese Idiom Puzzle Game</p>
 </header>
 <h1 style="text-align:center;font-size:22px;">${h1Text}</h1>
 <div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com/?date=${dateStr}">Play This Day's Game</a></div>
@@ -248,16 +249,16 @@ ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div c
 <li><strong>Spaced repetition:</strong> Come back tomorrow and see if you still remember it without looking.</li>
 </ul>
 <p style="margin-top:16px;padding:12px;background:#f0f9ff;border-radius:6px;font-size:14px">
-📖 <a href="/learn-chinese-with-wordle" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Wordle →</a></p>
+📖 <a href="/learn-chinese-with-wordle" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Daily Idiom Puzzle →</a></p>
 </div>
 <div class="section" style="border-top:2px solid #e5e7eb;padding-top:16px;margin-top:16px">
 <h2 style="font-size:16px;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">🔗 Related</h2>
 <p style="font-size:14px;line-height:2">
 <a href="/idioms/${difficulty}/" style="color:#2563eb;font-weight:600">More ${difficulty} idioms →</a><br/>
 <a href="/idioms/" style="color:#2563eb">Browse all Chinese idiom categories (成语分类)</a><br/>
-<a href="/study/chinese-wordle-hsk-guide" style="color:#2563eb">HSK &amp; Mandarin Wordle study guide</a><br/>
-<a href="/learn-chinese-with-wordle" style="color:#2563eb">How to Learn Chinese with Wordle (如何用Wordle学中文)</a><br/>
-<a href="/" style="color:#2563eb">Play today's Wordle Chinese (今日成语猜词)</a>
+<a href="/study/chinese-wordle-hsk-guide" style="color:#2563eb">HSK &amp; Mandarin word variant study guide</a><br/>
+<a href="/learn-chinese-with-wordle" style="color:#2563eb">How to Learn Chinese with Daily Idiom Puzzle (如何学中文)</a><br/>
+<a href="/" style="color:#2563eb">Play today's idiom puzzle (今日成语猜词)</a>
 </p>
 </div>
 <div class="nav">
@@ -266,7 +267,7 @@ ${isFirst ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/ans
 ${isLast ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answer/${nextStr}/">${nextStr} →</a>`}
 </div>
 <footer style="text-align:center;margin-top:40px;color:#9ca3af;font-size:13px">
-<p>© ${new Date().getUTCFullYear()} <a href="https://wordlechinese.com" style="color:#6b7280">Wordle Chinese</a> · <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
+<p>© ${new Date().getUTCFullYear()} <a href="https://wordlechinese.com" style="color:#6b7280">成语猜词</a> · <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
 </footer>
 </body>
 </html>`;

@@ -3,28 +3,26 @@
   --inverse-text-color: #fff;
   --bg-color: #fff;
   --border-color: #ccc;
-  --green-color: green;
-  --gray-color: gray;
-  --primary-color: var(--green-color);
-  --primary-bg-color: rgba(0, 128, 0, 0.178);
-  --primary-active-bg-color: rgba(0, 128, 0, 0.432);
+  --primary-color: var(--blue-color);
+  --primary-bg-color: rgba(37, 99, 235, 0.12);
+  --primary-active-bg-color: rgba(37, 99, 235, 0.3);
   --text-strong-color: #000;
   --text-strong-decoration-color: rgba(0, 0, 0, 0.2);
   --letter-border-color: var(--border-color);
   --letter-border-active-color: #666;
   --letter-error-border-color: lightcoral;
-  --correct-color: var(--green-color);
-  --present-color: orange;
-  --absent-color: var(--gray-color);
+  --correct-color: #2563eb;
+  --present-color: #f59e0b;
+  --absent-color: #d4d4d8;
   --letter-state-text-color: var(--inverse-text-color);
   --letter-state-border-color: rgba(0, 0, 0, 0.2);
   --keyboard-bg-color: #fafafa;
   --keyboard-border-color: var(--border-color);
-  --key-bg-color: #d3d6da;
-  --key-shadow-color: rgba(0, 0, 0, 0.25);
+  --key-bg-color: #e5e7eb;
+  --key-shadow-color: rgba(0, 0, 0, 0.15);
   --key-state-text-color: var(--inverse-text-color);
   --key-active-text-color: var(--inverse-text-color);
-  --key-active-bg-color: #686868;
+  --key-active-bg-color: #4b5563;
   --modal-backdrop-color: rgba(255, 255, 255, 0.7);
   --modal-bg-color: var(--bg-color);
   --modal-shadow-color: rgba(0, 0, 0, 0.2);
@@ -34,14 +32,15 @@
   --button-bg-color: var(--primary-bg-color);
   --button-active-bg-color: var(--primary-active-bg-color);
   --button-strong-text-color: var(--inverse-text-color);
-  --button-strong-bg-color: var(--green-color);
+  --button-strong-bg-color: var(--blue-color);
   --facebook-color: #3b5998;
   --twitter-color: #1da1f2;
   --text-field-bg-color: var(--bg-color);
   --text-field-border-color: var(--primary-active-bg-color);
   --text-insignificant-color: rgba(0, 0, 0, 0.5);
-  --toast-bg-color: var(--green-color);
+  --toast-bg-color: var(--blue-color);
   --toast-text-color: var(--inverse-text-color);
+  --blue-color: #2563eb;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -49,16 +48,16 @@
     --text-color: #eee;
     --bg-color: #121213;
     --border-color: #555;
-    --primary-color: lightgreen;
+    --primary-color: #60a5fa;
     --text-strong-color: #fff;
     --text-strong-decoration-color: rgba(255, 255, 255, 0.2);
     --letter-border-color: #555;
     --letter-border-active-color: #ccc;
-    --absent-color: #444;
+    --absent-color: #71717a;
     --keyboard-bg-color: #333;
-    --key-bg-color: #707375;
+    --key-bg-color: #52525b;
     --key-shadow-color: #000;
-    --key-active-bg-color: #333;
+    --key-active-bg-color: #4b5563;
     --modal-backdrop-color: rgba(37, 37, 37, 0.7);
     --modal-shadow-color: var(--primary-bg-color);
     --block-border-color: rgba(255, 255, 255, 0.1);
@@ -66,6 +65,7 @@
     --text-field-bg-color: #222;
     --text-field-border-color: #999;
     --text-insignificant-color: rgba(255, 255, 255, 0.5);
+    --blue-color: #3b82f6;
   }
 }
 
@@ -121,7 +121,7 @@ ruby rt {
 } */
 
 input {
-  accent-color: var(--green-color);
+  accent-color: var(--blue-color);
 }
 
 button,
@@ -669,8 +669,8 @@ header h1 {
 }
 #modal #share-image-button {
   color: var(--button-strong-text-color);
-  background: #d6249f
-    radial-gradient(circle at 30% 100%, #fd5949 0%, #d6249f 50%, #285aeb 100%);
+  background: #2563eb
+    radial-gradient(circle at 30% 100%, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
 }
 
 #modal a.facebook {
@@ -834,12 +834,12 @@ a.button.strong {
 }
 
 .rc-switch {
-  border-color: var(--gray-color);
-  background-color: var(--gray-color);
+  border-color: var(--absent-color);
+  background-color: var(--absent-color);
 }
 .rc-switch-checked {
-  border-color: var(--green-color);
-  background-color: var(--green-color);
+  border-color: var(--blue-color);
+  background-color: var(--blue-color);
 }
 .rc-switch:focus {
   box-shadow: 0 0 0 2px var(--text-color);

@@ -1002,7 +1002,7 @@ export function App() {
                     class="button facebook"
                     href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                       permalink,
-                    )}&hashtag=${encodeURIComponent('#wordlechinese')}`}
+                    )}&hashtag=${encodeURIComponent('#chengyupuzzle')}`}
                     target="_blank" rel="noopener noreferrer"
                     onClick={() => {
                       copy(shareTextWithLink);
@@ -1318,10 +1318,6 @@ export function App() {
                       target="_blank" rel="noopener noreferrer"
                     />,
                     <a href="https://cheeaun.com/projects/" target="_blank" rel="noopener noreferrer" />,
-                    <a
-                      href="https://www.nytimes.com/games/wordle/"
-                      target="_blank" rel="noopener noreferrer"
-                    />,
                   ]}
                 />
               </p>
@@ -1474,7 +1470,7 @@ export function App() {
               </details>
               <p style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border-color,#e5e7eb)">
                 <a href="/learn-chinese-with-wordle.html">
-                  📖 How to Learn Chinese with Wordle
+                  📖 How to Learn Chinese with Idiom Puzzle
                 </a>
               </p>
             </>

@@ -1,9 +1,9 @@
 {
-  "name": "Wordle Chinese",
-  "short_name": "Wordle Chinese",
-  "description": "Play the Chinese version of Wordle for free! Guess the hidden Chinese idiom (成语) in 6 tries.",
-  "background_color": "#6aaa64",
-  "theme_color": "#6aaa64",
+  "name": "成语猜词",
+  "short_name": "成语猜词",
+  "description": "Play the Chinese idiom puzzle game for free! Guess the hidden Chinese idiom (成语) in 6 tries.",
+  "background_color": "#2563eb",
+  "theme_color": "#2563eb",
   "start_url": "./",
   "display": "standalone",
   "icons": [

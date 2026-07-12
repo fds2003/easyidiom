@@ -200,7 +200,7 @@ const DIFFICULTY_META = {
   easy: {
     label: 'Easy 😊',
     slug: 'easy',
-    description: 'Learn easy Chinese idioms (成语) with pinyin and English. Beginner-friendly 4-character chengyu perfect for HSK prep and daily mandarin wordle practice.',
+    description: 'Learn easy Chinese idioms (成语) with pinyin and English. Beginner-friendly 4-character chengyu perfect for HSK prep and daily mandarin word variant practice.',
   },
   medium: {
     label: 'Medium 🤔',

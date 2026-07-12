@@ -1,12 +1,12 @@
 {
   "about": {
-    "about1": "<0>Built</0> by <1>Chee Aun</1>. <2>Wordle</2> © The New York Times Company.",
+    "about1": "<0>Built</0> by <1>Chee Aun</1>. Inspired by daily word puzzles.",
     "about2": "Enjoying the game? <0>Buy me a coffee!</0>",
     "heading": "About"
   },
   "app": {
-    "description": "Free Chinese Wordle and mandarin wordle: guess one daily 4-character idiom in 6 tries from 7,000+ chengyu. Pinyin, hints, and answer pages — browser-based, no install.",
-    "title": "Wordle Chinese — Chinese & Mandarin Wordle | 7,000+ Idioms, Free Daily Puzzle"
+    "description": "Free Chinese idiom puzzle and mandarin word variant: guess one daily 4-character idiom in 6 tries from 7,000+ chengyu. Pinyin, hints, and answer pages — browser-based, no install.",
+    "title": "成语猜词 — Chinese & Mandarin Idiom Puzzle | 7,000+ Chengyu, Free Daily Game"
   },
   "common": {
     "choose": "Choose",
@@ -54,8 +54,8 @@
     "how3": "After each guess, the color of the tiles will change to show how close your guess was to the idiom.",
     "how4": "A new idiom will be available every day.",
     "spotAbsent": "Gray = not in any spot",
-    "spotCorrect": "Green = correct spot",
-    "spotPresent": "Yellow = wrong spot"
+    "spotCorrect": "Blue = correct spot",
+    "spotPresent": "Amber = wrong spot"
   },
   "ui": {
     "avoidSpoilers": "Please don't share answers to avoid spoilers!",

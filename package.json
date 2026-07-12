@@ -1,6 +1,6 @@
 {
   "name": "wordlechinese",
-  "description": "Wordle, for Chinese idioms - 成语 (chéngyǔ)",
+  "description": "Chinese idiom puzzle game — 成语 (chéngyǔ) daily word game",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
