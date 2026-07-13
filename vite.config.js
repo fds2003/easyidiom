@@ -116,13 +116,13 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            // console.log(id);
-            if (id.includes('.css')) return; // Do nothing for CSS
-            if (id.includes('all-idioms')) return 'all-idioms';
-            if (id.includes('game-idioms')) return 'game-idioms';
-            if (id.includes('node_modules/pinyin-pro/data'))
+            const normalizedId = id.replace(/\\/g, '/');
+            if (normalizedId.includes('.css')) return; // Do nothing for CSS
+            if (normalizedId.includes('all-idioms')) return 'all-idioms';
+            if (normalizedId.includes('game-idioms')) return 'game-idioms';
+            if (normalizedId.includes('node_modules/pinyin-pro/data'))
               return 'pinyin-data';
-            if (id.includes('node_modules')) return 'vendor';
+            if (normalizedId.includes('node_modules')) return 'vendor';
           },
         },
       },
