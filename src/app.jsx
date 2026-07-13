@@ -1325,28 +1325,11 @@ export function App() {
                       href="https://github.com/fds2003/wordlechinese/"
                       target="_blank" rel="noopener noreferrer"
                     />,
-                    <a href="https://cheeaun.com/projects/" target="_blank" rel="noopener noreferrer" />,
-                  ]}
-                />
-              </p>
-              <p>
-                <Trans
-                  i18nKey="about.about2"
-                  components={[
-                    <a
-                      href="https://www.buymeacoffee.com/cheeaun"
-                      target="_blank" rel="noopener noreferrer"
-                    />,
                   ]}
                 />
               </p>
               <h2>{t('feedback.heading')}</h2>
               <ul>
-                <li>
-                  <a href="https://t.me/+ykuhfiImLd1kNjk1" target="_blank" rel="noopener noreferrer">
-                    {t('feedback.telegramGroup')}
-                  </a>
-                </li>
                 <li>
                   <Trans
                     i18nKey="feedback.githubDiscussions"
@@ -1368,16 +1351,6 @@ export function App() {
                       />,
                     ]}
                   />
-                </li>
-                <li>
-                  <a href="https://twitter.com/cheeaun" target="_blank" rel="noopener noreferrer">
-                    {t('feedback.twitter')}
-                  </a>
-                </li>
-                <li>
-                  <a href="https://t.me/cheeaun" target="_blank" rel="noopener noreferrer">
-                    {t('feedback.telegram')}
-                  </a>
                 </li>
               </ul>
               <details id="debugging-container">

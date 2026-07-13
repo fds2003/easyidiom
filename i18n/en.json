@@ -1,7 +1,6 @@
 {
   "about": {
-    "about1": "<0>Built</0> by <1>Chee Aun</1>. Inspired by daily word puzzles.",
-    "about2": "Enjoying the game? <0>Buy me a coffee!</0>",
+    "about1": "<0>Supported</0> by fds2003. Inspired by daily word puzzles & traditional Chinese riddles.",
     "heading": "About"
   },
   "app": {
@@ -33,10 +32,7 @@
   "feedback": {
     "githubDiscussions": "<0>GitHub Discussions</0> (for developers)",
     "githubIssues": "<0>GitHub Issues</0> (for bugs)",
-    "heading": "Feedback",
-    "telegram": "@cheeaun on Telegram",
-    "telegramGroup": "Telegram Group",
-    "twitter": "@cheeaun on Twitter"
+    "heading": "Feedback"
   },
   "glossary": {
     "baidu": "Baidu",
