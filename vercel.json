@@ -35,6 +35,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!es|it|study|answer|idioms|learn-chinese-with-idioms|privacy)(.+))", "destination": "/index.html" }
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
