@@ -4,17 +4,37 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/learn-chinese-with-wordle",
+      "destination": "/learn-chinese-with-idioms",
+      "permanent": true
+    },
+    {
+      "source": "/learn-chinese-with-wordle.html",
+      "destination": "/learn-chinese-with-idioms",
+      "permanent": true
+    },
+    {
+      "source": "/study/chinese-wordle-hsk-guide",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
+    },
+    {
+      "source": "/study/chinese-wordle-hsk-guide.html",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
+    },
+    {
       "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)",
-      "destination": "/study/chinese-wordle-hsk-guide",
+      "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     },
     {
       "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)/",
-      "destination": "/study/chinese-wordle-hsk-guide",
+      "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/((?!.*\\..*|es|it|study|answer|idioms|learn-chinese-with-wordle|privacy)(.*)*)", "destination": "/index.html" }
+    { "source": "/((?!es|it|study|answer|idioms|learn-chinese-with-idioms|privacy|.*\\..*$).*)", "destination": "/index.html" }
   ]
 }
