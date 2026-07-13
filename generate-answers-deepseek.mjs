@@ -113,7 +113,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
   const h1Text = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin})`;
   const seoTitle = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Chinese idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play today's puzzle at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const articleDescription = `Need hints or the answer for today's Chinese idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -249,15 +249,15 @@ ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div c
 <li><strong>Spaced repetition:</strong> Come back tomorrow and see if you still remember it without looking.</li>
 </ul>
 <p style="margin-top:16px;padding:12px;background:#f0f9ff;border-radius:6px;font-size:14px">
-📖 <a href="/learn-chinese-with-wordle" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Daily Idiom Puzzle →</a></p>
+📖 <a href="/learn-chinese-with-idioms" style="color:#2563eb;font-weight:600">Read our full guide: How to Learn Chinese with Daily Idiom Puzzle →</a></p>
 </div>
 <div class="section" style="border-top:2px solid #e5e7eb;padding-top:16px;margin-top:16px">
 <h2 style="font-size:16px;color:#374151;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">🔗 Related</h2>
 <p style="font-size:14px;line-height:2">
 <a href="/idioms/${difficulty}/" style="color:#2563eb;font-weight:600">More ${difficulty} idioms →</a><br/>
 <a href="/idioms/" style="color:#2563eb">Browse all Chinese idiom categories (成语分类)</a><br/>
-<a href="/study/chinese-wordle-hsk-guide" style="color:#2563eb">HSK &amp; Mandarin word variant study guide</a><br/>
-<a href="/learn-chinese-with-wordle" style="color:#2563eb">How to Learn Chinese with Daily Idiom Puzzle (如何学中文)</a><br/>
+<a href="/study/chinese-idiom-hsk-guide" style="color:#2563eb">HSK &amp; Mandarin idiom study guide</a><br/>
+<a href="/learn-chinese-with-idioms" style="color:#2563eb">How to Learn Chinese with Daily Idiom Puzzle (如何用成语猜词学中文)</a><br/>
 <a href="/" style="color:#2563eb">Play today's idiom puzzle (今日成语猜词)</a>
 </p>
 </div>
@@ -297,8 +297,8 @@ function generateSitemaps(generatedDates) {
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://wordlechinese.com/</loc><lastmod>${lastmod}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://wordlechinese.com/learn-chinese-with-wordle</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://wordlechinese.com/study/chinese-wordle-hsk-guide</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://wordlechinese.com/learn-chinese-with-idioms</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://wordlechinese.com/study/chinese-idiom-hsk-guide</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
   <url><loc>https://wordlechinese.com/privacy</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>`
   );

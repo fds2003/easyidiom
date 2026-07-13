@@ -242,7 +242,7 @@ const IdiomsDashboard = () => {
           class={`board ${gameState}`}
           title={`${game.id} (${gameState})`}
         >
-          {gameState === 'won' ? '🟩' : '🟧'}
+          {gameState === 'won' ? '🟦' : '🟨'}
         </a>
       );
     } else {
@@ -668,7 +668,15 @@ export function App() {
   const shortPermalink =
     location.host + location.pathname + '#' + currentGame.id;
   const emojiResults = boardStates
-    .map((row) => row.join(''))
+    .map((row) =>
+      row
+        .map((state) => {
+          if (state === '🟩') return '🟦';
+          if (state === '🟧') return '🟨';
+          return state;
+        })
+        .join(''),
+    )
     .join('\n')
     .trim();
   const attempts = gameState === 'won' ? emojiResults.split('\n').length : 'X';
@@ -1399,7 +1407,7 @@ export function App() {
                       document.body.appendChild($a);
                       $a.style = 'display: none';
                       $a.href = url;
-                      $a.download = 'wordlechinese.gamedata.json';
+                      $a.download = 'chengyuguesser.gamedata.json';
                       $a.click();
 
                       // Clean up

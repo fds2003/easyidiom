@@ -72,7 +72,7 @@ const homeSsgPrerenderPlugin = () => {
       const studyDir = path.join(resolvedOutDir, 'study');
       fs.mkdirSync(studyDir, { recursive: true });
       fs.writeFileSync(
-        path.join(studyDir, 'chinese-wordle-hsk-guide.html'),
+        path.join(studyDir, 'chinese-idiom-hsk-guide.html'),
         buildHskStudyGuideHtml(),
         'utf8',
       );

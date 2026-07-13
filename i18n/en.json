@@ -5,7 +5,7 @@
     "heading": "About"
   },
   "app": {
-    "description": "Free Chinese idiom puzzle and mandarin word variant: guess one daily 4-character idiom in 6 tries from 7,000+ chengyu. Pinyin, hints, and answer pages — browser-based, no install.",
+    "description": "Free Chinese idiom puzzle and daily pinyin guessing game: guess one daily 4-character idiom in 6 tries from 7,000+ chengyu. Pinyin, hints, and answer pages — browser-based, no install.",
     "title": "成语猜词 — Chinese & Mandarin Idiom Puzzle | 7,000+ Chengyu, Free Daily Game"
   },
   "common": {
@@ -21,7 +21,7 @@
     "heading": "Congratulations, you've made it! {{gamesCount}}+ games!",
     "subheading": "Here you have access to ALL idiom games, including the ones you might have not played. Click on the box to play a specific idiom game.",
     "totalGamesPlayed": "Total games played: <0>{{gamesCountOverTotal}}</0>",
-    "wonLost": "🟩 Won: <0>{{wonCount}}</0> · 🟧 Lost: <1>{{lostCount}}</1>"
+    "wonLost": "🟦 Won: <0>{{wonCount}}</0> · 🟨 Lost: <1>{{lostCount}}</1>"
   },
   "debugging": {
     "clearDB": "Clear database",
@@ -49,13 +49,13 @@
   },
   "howToPlay": {
     "heading": "How to play",
-    "how1": "Guess the idiom in 6 tries.",
-    "how2": "Each guess must be a valid 4-letter idiom. Hit the enter button to submit.",
-    "how3": "After each guess, the color of the tiles will change to show how close your guess was to the idiom.",
-    "how4": "A new idiom will be available every day.",
-    "spotAbsent": "Gray = not in any spot",
-    "spotCorrect": "Blue = correct spot",
-    "spotPresent": "Amber = wrong spot"
+    "how1": "You have 6 attempts to decode the daily Chinese idiom.",
+    "how2": "Type a 4-character idiom using the pinyin keyboard and hit Enter to test.",
+    "how3": "Each character card will change color, indicating how close your pinyin guess matches the hidden idiom.",
+    "how4": "A fresh idiom puzzle awaits you every single day!",
+    "spotAbsent": "Slate Gray = not in the idiom",
+    "spotCorrect": "Indigo Blue = correct letter at correct position",
+    "spotPresent": "Amber Yellow = letter present but wrong position"
   },
   "ui": {
     "avoidSpoilers": "Please don't share answers to avoid spoilers!",

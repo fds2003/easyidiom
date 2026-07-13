@@ -104,9 +104,9 @@ describe('generateHTML', () => {
     expect(desc).not.toMatch(/\.\.$/);
   });
 
-  it('meta description includes CTA to play today\'s puzzle', () => {
+  it('meta description includes CTA to play daily', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
-    expect(html).toContain('Play today\'s puzzle at wordlechinese.com!');
+    expect(html).toContain('Play daily at wordlechinese.com!');
   });
 
   it('meta description uses &amp; instead of plain "and"', () => {
@@ -118,12 +118,12 @@ describe('generateHTML', () => {
 
   it('og:description includes CTA same as meta description', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
-    expect(html).toMatch(/<meta property="og:description" content="[^"]*Play today's puzzle/);
+    expect(html).toMatch(/<meta property="og:description" content="[^"]*Play daily/);
   });
 
   it('twitter:description includes CTA same as meta description', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
-    expect(html).toMatch(/<meta name="twitter:description" content="[^"]*Play today's puzzle/);
+    expect(html).toMatch(/<meta name="twitter:description" content="[^"]*Play daily/);
   });
 
   it('meta description is under 320 chars (Google modern SERP limit)', () => {

@@ -320,17 +320,17 @@ function generatePage({
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${label} Chinese Idioms | WordleChinese.com</title>
+  <title>${label} Chinese Idioms | Chengyu Guesser</title>
   <meta name="description" content="${description}"/>
   <link rel="canonical" href="${SITE_URL}${canonicalPath}"/>
-  <meta property="og:title" content="${label} Chinese Idioms | WordleChinese.com"/>
+  <meta property="og:title" content="${label} Chinese Idioms | Chengyu Guesser"/>
   <meta property="og:description" content="${description}"/>
   <meta property="og:url" content="${SITE_URL}${canonicalPath}"/>
   <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="${label} Chinese Idioms | WordleChinese.com"/>
+  <meta name="twitter:title" content="${label} Chinese Idioms | Chengyu Guesser"/>
   <meta name="twitter:description" content="${description}"/>
   <meta name="twitter:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta name="robots" content="index, follow"/>
@@ -383,8 +383,8 @@ function generatePage({
 </head>
 <body>
   <header>
-    <a href="${SITE_URL}">🀄 WordleChinese.com</a>
-    <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Wordle Game</p>
+    <a href="${SITE_URL}">🀄 Chengyu Guesser</a>
+    <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Guessing Game</p>
   </header>
 
   <div class="breadcrumb">${breadcrumb}</div>
@@ -393,7 +393,7 @@ function generatePage({
   <p class="subtitle">${description}</p>
   <p class="count">${items.length} idioms in this collection</p>
 
-  <a class="play-btn" href="${SITE_URL}">▶ Play Today's Wordle Chinese</a>
+  <a class="play-btn" href="${SITE_URL}">▶ Play Chengyu Guesser Daily</a>
 
   <div class="grid">
     ${items.map((item) => idiomCard(item, dateMap)).join('')}
@@ -405,7 +405,7 @@ function generatePage({
   </nav>
 
   <footer>
-    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">WordleChinese.com</a> ·
+    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">Chengyu Guesser</a> ·
     <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>
@@ -429,8 +429,8 @@ function generateIndexPage(categories) {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chinese Idiom Categories | WordleChinese.com</title>
-  <meta name="description" content="Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Wordle Chinese daily."/>
+  <title>Chinese Idiom Categories | Chengyu Guesser</title>
+  <meta name="description" content="Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Chengyu Guesser daily."/>
   <link rel="canonical" href="${SITE_URL}/idioms/"/>
   <script type="application/ld+json">
   {
@@ -439,10 +439,10 @@ function generateIndexPage(categories) {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How many Chinese idioms are on Wordle Chinese?",
+        "name": "How many Chinese idioms are on Chengyu Guesser?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Wordle Chinese has 7,200+ idioms organized by difficulty (easy, medium, hard) and theme (animals, numbers, nature, people, colors)."
+          "text": "Chengyu Guesser has 7,200+ idioms organized by difficulty (easy, medium, hard) and theme (animals, numbers, nature, people, colors)."
         }
       },
       {
@@ -468,8 +468,8 @@ function generateIndexPage(categories) {
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Chinese Idiom Categories | WordleChinese.com",
-    "description": "Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Wordle Chinese daily.",
+    "name": "Chinese Idiom Categories | Chengyu Guesser",
+    "description": "Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Chengyu Guesser daily.",
     "url": "${SITE_URL}/idioms/"
   }
   </script>
@@ -481,7 +481,7 @@ function generateIndexPage(categories) {
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Wordle Chinese",
+        "name": "Chengyu Guesser",
         "item": "${SITE_URL}/"
       },
       {
@@ -513,14 +513,14 @@ function generateIndexPage(categories) {
 </head>
 <body>
   <header>
-    <a href="${SITE_URL}">🀄 WordleChinese.com</a>
-    <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Wordle Game</p>
+    <a href="${SITE_URL}">🀄 Chengyu Guesser</a>
+    <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Guessing Game</p>
   </header>
 
   <h1>Browse Chinese Idioms</h1>
   <p style="color:#6b7280">Explore our collection of Chinese idioms (成语) by difficulty or theme.</p>
 
-  <a class="play-btn" href="${SITE_URL}">▶ Play Today's Wordle Chinese</a>
+  <a class="play-btn" href="${SITE_URL}">▶ Play Chengyu Guesser Daily</a>
 
   <h2 style="font-size:18px;margin-bottom:8px">By Difficulty</h2>
   <div class="grid">${categories
@@ -549,7 +549,7 @@ function generateIndexPage(categories) {
     .join('')}</div>
 
   <footer>
-    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">WordleChinese.com</a> ·
+    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">Chengyu Guesser</a> ·
     <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>

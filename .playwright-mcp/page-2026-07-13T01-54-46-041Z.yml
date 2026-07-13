@@ -1,0 +1,252 @@
+- generic [active]:
+  - region [ref=e1]:
+    - heading "Chinese Wordle & Mandarin Wordle — Free Daily Chinese Idiom Puzzle" [level=2] [ref=e2]
+    - paragraph [ref=e3]:
+      - text: Play the free
+      - strong [ref=e4]: Chinese Wordle
+      - text: /
+      - strong [ref=e5]: mandarin wordle
+      - text: /
+      - strong [ref=e6]: hanzi wordle
+      - text: "at Wordle Chinese: one new four-character idiom (成语) every calendar day, six guesses, keyboard with pinyin input, and a rotating pool of"
+      - strong [ref=e7]: 7,209
+      - text: high-frequency idioms.
+    - paragraph [ref=e8]:
+      - text: Today’s puzzle uses the same daily queue as the web app (since Jan 27, 2022 UTC; new puzzle at 00:00 UTC). Open the board below to play —
+      - strong [ref=e9]: no answer spoilers here.
+    - paragraph [ref=e10]:
+      - text: If you are looking for a
+      - strong [ref=e11]: wordle chino
+      - text: (wordle en español) to learn and play with Chinese characters and pinyin, this daily puzzle is the perfect tool.
+    - heading "Recent answer pages (UTC dates; meanings, examples & pinyin)" [level=3] [ref=e12]
+    - list [ref=e13]:
+      - listitem:
+        - link "July 13, 2026" [ref=e14] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-13/
+      - listitem:
+        - link "July 12, 2026" [ref=e15] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-12/
+      - listitem:
+        - link "July 11, 2026" [ref=e16] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-11/
+      - listitem:
+        - link "July 10, 2026" [ref=e17] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-10/
+      - listitem:
+        - link "July 9, 2026" [ref=e18] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-09/
+      - listitem:
+        - link "July 8, 2026" [ref=e19] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-08/
+      - listitem:
+        - link "July 7, 2026" [ref=e20] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-07/
+      - listitem:
+        - link "July 6, 2026" [ref=e21] [cursor=pointer]:
+          - /url: https://wordlechinese.com/answer/2026-07-06/
+    - paragraph [ref=e22]:
+      - link "How to learn Chinese with Wordle" [ref=e23] [cursor=pointer]:
+        - /url: https://wordlechinese.com/learn-chinese-with-wordle
+      - text: ·
+      - link "HSK study & chengyu hub" [ref=e24] [cursor=pointer]:
+        - /url: https://wordlechinese.com/study/chinese-wordle-hsk-guide
+  - generic [ref=e25]:
+    - banner [ref=e26]:
+      - generic [ref=e27]:
+        - button "ℹ️" [ref=e28] [cursor=pointer]:
+          - img "ℹ️" [ref=e29]
+        - heading "Wordle Chinese — 中文成语 Wordle｜7,000+ 成语词库 · 免费每日一题" [level=1] [ref=e32]
+        - button "..." [ref=e33] [cursor=pointer]:
+          - img "..." [ref=e34]
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]: 一
+        - generic [ref=e41]: 一
+        - generic [ref=e44]: 一
+        - generic [ref=e47]: 一
+      - generic [ref=e50]:
+        - generic [ref=e51]: 一
+        - generic [ref=e54]: 一
+        - generic [ref=e57]: 一
+        - generic [ref=e60]: 一
+      - generic [ref=e63]:
+        - generic [ref=e64]: 一
+        - generic [ref=e67]: 一
+        - generic [ref=e70]: 一
+        - generic [ref=e73]: 一
+      - generic [ref=e76]:
+        - generic [ref=e77]: 一
+        - generic [ref=e80]: 一
+        - generic [ref=e83]: 一
+        - generic [ref=e86]: 一
+      - generic [ref=e89]:
+        - generic [ref=e90]: 一
+        - generic [ref=e93]: 一
+        - generic [ref=e96]: 一
+        - generic [ref=e99]: 一
+      - generic [ref=e102]:
+        - generic [ref=e103]: 一
+        - generic [ref=e106]: 一
+        - generic [ref=e109]: 一
+        - generic [ref=e112]: 一
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - button "壁 bì" [ref=e118] [cursor=pointer]:
+          - generic [ref=e119]:
+            - text: 壁
+            - generic [ref=e120]: bì
+        - button "不 bù" [ref=e121] [cursor=pointer]:
+          - generic [ref=e122]:
+            - text: 不
+            - generic [ref=e123]: bù
+        - button "而 ér" [ref=e124] [cursor=pointer]:
+          - generic [ref=e125]:
+            - text: 而
+            - generic [ref=e126]: ér
+        - button "迹 jì" [ref=e127] [cursor=pointer]:
+          - generic [ref=e128]:
+            - text: 迹
+            - generic [ref=e129]: jì
+        - button "决 jué" [ref=e130] [cursor=pointer]:
+          - generic [ref=e131]:
+            - text: 决
+            - generic [ref=e132]: jué
+        - button "绝 jué" [ref=e133] [cursor=pointer]:
+          - generic [ref=e134]:
+            - text: 绝
+            - generic [ref=e135]: jué
+        - button "口 kǒu" [ref=e136] [cursor=pointer]:
+          - generic [ref=e137]:
+            - text: 口
+            - generic [ref=e138]: kǒu
+        - button "勒 lè" [ref=e139] [cursor=pointer]:
+          - generic [ref=e140]:
+            - text: 勒
+            - generic [ref=e141]: lè
+        - button "马 mǎ" [ref=e142] [cursor=pointer]:
+          - generic [ref=e143]:
+            - text: 马
+            - generic [ref=e144]: mǎ
+        - button "敲 qiāo" [ref=e145] [cursor=pointer]:
+          - generic [ref=e146]:
+            - text: 敲
+            - generic [ref=e147]: qiāo
+        - button "峭 qiào" [ref=e148] [cursor=pointer]:
+          - generic [ref=e149]:
+            - text: 峭
+            - generic [ref=e150]: qiào
+        - button "丝 sī" [ref=e151] [cursor=pointer]:
+          - generic [ref=e152]:
+            - text: 丝
+            - generic [ref=e153]: sī
+        - button "索 suǒ" [ref=e154] [cursor=pointer]:
+          - generic [ref=e155]:
+            - text: 索
+            - generic [ref=e156]: suǒ
+        - button "蹄 tí" [ref=e157] [cursor=pointer]:
+          - generic [ref=e158]:
+            - text: 蹄
+            - generic [ref=e159]: tí
+        - button "停 tíng" [ref=e160] [cursor=pointer]:
+          - generic [ref=e161]:
+            - text: 停
+            - generic [ref=e162]: tíng
+        - button "未 wèi" [ref=e163] [cursor=pointer]:
+          - generic [ref=e164]:
+            - text: 未
+            - generic [ref=e165]: wèi
+        - button "悬 xuán" [ref=e166] [cursor=pointer]:
+          - generic [ref=e167]:
+            - text: 悬
+            - generic [ref=e168]: xuán
+        - button "崖 yá" [ref=e169] [cursor=pointer]:
+          - generic [ref=e170]:
+            - text: 崖
+            - generic [ref=e171]: yá
+        - button "诈 zhà" [ref=e172] [cursor=pointer]:
+          - generic [ref=e173]:
+            - text: 诈
+            - generic [ref=e174]: zhà
+        - button "蛛 zhū" [ref=e175] [cursor=pointer]:
+          - generic [ref=e176]:
+            - text: 蛛
+            - generic [ref=e177]: zhū
+      - generic [ref=e178]:
+        - button "Enter" [ref=e179] [cursor=pointer]
+        - button "我被困住了" [ref=e180] [cursor=pointer]
+        - button [ref=e181] [cursor=pointer]
+    - generic:
+      - img "✖️"
+      - generic:
+        - heading "🐯🐯🐯" [level=2]
+        - generic:
+          - generic:
+            - button "▶️ 随机的":
+              - img "▶️"
+              - text: 随机的
+            - button "▶️ 选择":
+              - img "▶️"
+              - text: 选择
+    - generic [ref=e185]:
+      - paragraph [ref=e186]:
+        - button "🌑" [ref=e187] [cursor=pointer]
+        - button "🌓" [ref=e188] [cursor=pointer]
+        - button "🌕" [ref=e189] [cursor=pointer]
+      - paragraph [ref=e190]:
+        - text: 🌐
+        - link "English" [ref=e191] [cursor=pointer]:
+          - /url: ./?lng=en
+        - text: ⋅
+        - link "中文" [ref=e192] [cursor=pointer]:
+          - /url: ./?lng=zh-CN
+      - heading "怎么玩" [level=2] [ref=e193]
+      - paragraph [ref=e194]: 在 6 次尝试中猜出成语。
+      - paragraph [ref=e195]: 每个猜测都必须是有效的 4 字母习语。点击回车按钮提交。
+      - paragraph [ref=e196]: 每次猜测后，图块的颜色会发生变化，以显示您的猜测与成语的接近程度。
+      - generic [ref=e197]:
+        - generic [ref=e199]:
+          - text: 九
+          - generic [ref=e200]: jiǔ
+        - generic [ref=e202]:
+          - text: 牛
+          - generic [ref=e203]: niú
+        - generic [ref=e205]:
+          - text: 一
+          - generic [ref=e206]: yī
+        - generic [ref=e208]:
+          - text: 毛
+          - generic [ref=e209]: máo
+      - paragraph [ref=e210]: 绿色 = 正确位置
+      - generic [ref=e211]:
+        - generic [ref=e213]:
+          - text: 理
+          - generic [ref=e214]: lǐ
+        - generic [ref=e216]:
+          - text: 所
+          - generic [ref=e217]: suǒ
+        - generic [ref=e219]:
+          - text: 当
+          - generic [ref=e220]: dāng
+        - generic [ref=e222]:
+          - text: 然
+          - generic [ref=e223]: rán
+      - paragraph [ref=e224]: 黄色 = 错误的位置
+      - generic [ref=e225]:
+        - generic [ref=e227]:
+          - text: 爱
+          - generic [ref=e228]: ài
+        - generic [ref=e230]:
+          - text: 不
+          - generic [ref=e231]: bù
+        - generic [ref=e233]:
+          - text: 释
+          - generic [ref=e234]: shì
+        - generic [ref=e236]:
+          - text: 手
+          - generic [ref=e237]: shǒu
+      - paragraph [ref=e238]: 灰色 = 不在任何地方
+      - paragraph [ref=e239]: 每天都会有一个新的成语出现。
+      - paragraph [ref=e240]:
+        - button "▶️ 让我们玩！" [ref=e241] [cursor=pointer]:
+          - img "▶️" [ref=e242]
+          - text: 让我们玩！
