@@ -278,9 +278,20 @@ function getIdiomDateMap() {
   return _idiomDateMap;
 }
 
+function toSlug(pinyinStr) {
+  if (!pinyinStr) return '';
+  return pinyinStr
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
 function idiomCard(item, dateMap) {
-  const date = dateMap[item.idiom];
-  const link = date ? `${SITE_URL}/answer/${date}/` : `${SITE_URL}`;
+  const slug = toSlug(item.pinyin);
+  const link = slug ? `/idiom/${slug}` : `${SITE_URL}`;
   const difficulty = item.difficulty || 'medium';
   const diffColor = { easy: '#6aaa64', medium: '#c9b458', hard: '#787c7e' }[
     difficulty
