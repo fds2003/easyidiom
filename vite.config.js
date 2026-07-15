@@ -113,6 +113,7 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 0,
       target: ['es2020', 'chrome61', 'safari11'],
       sourcemap: true,
+      chunkSizeWarningLimit: 1500,
       rollupOptions: {
         output: {
           manualChunks(id) {
