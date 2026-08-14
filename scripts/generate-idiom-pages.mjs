@@ -157,23 +157,23 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | Chengyu Guesser</title>
-  <meta name="description" content="Study Chinese idiom ${word} (${pinyin}): English explanation, Chinese definitions, origin derivation, and sentence examples. Play daily at Chengyu Guesser."/>
+  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | Chinese Wordle Guide</title>
+  <meta name="description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at Chengyu Guesser."/>
   <link rel="canonical" href="https://wordlechinese.com/idiom/${slug}"/>
-  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Examples | Chengyu Guesser"/>
-  <meta property="og:description" content="Study Chinese idiom ${word} (${pinyin}): English explanation, Chinese definitions, origin derivation, and sentence examples."/>
+  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | Chinese Wordle Guide"/>
+  <meta property="og:description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
   <meta property="og:url" content="https://wordlechinese.com/idiom/${slug}"/>
   <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta property="og:type" content="article"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Examples | Chengyu Guesser"/>
-  <meta name="twitter:description" content="Study Chinese idiom ${word} (${pinyin}): English explanation, Chinese definitions, origin derivation, and sentence examples."/>
+  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | Chinese Wordle Guide"/>
+  <meta name="twitter:description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Chinese Idiom ${word} (${pinyin}) Meaning &amp; Examples",
-    "description": "Chinese definitions, English explanation, derivation and sentence examples of idiom ${word}.",
+    "headline": "Chinese Wordle Idiom ${word} (${pinyin}) Meaning &amp; Examples",
+    "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${word}.",
     "publisher": {
       "@type": "Organization",
       "name": "成语猜词",

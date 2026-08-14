@@ -110,10 +110,10 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
   });
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
-  const h1Text = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin})`;
-  const seoTitle = `成语猜词 Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语答案`;
+  const h1Text = `Chinese Wordle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
+  const seoTitle = `Chinese Wordle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Chinese idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const articleDescription = `Need hints or the answer for today's Chinese Wordle idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -136,22 +136,22 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is 成语猜词 (Chinese Idiom Puzzle)?',
-        acceptedAnswer: { '@type': 'Answer', text: '成语猜词 (Chinese Idiom Puzzle) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
+        name: 'What is Chinese Wordle (成语猜词)?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Chinese Wordle (成语猜词) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
       },
       {
         '@type': 'Question',
-        name: `What is today's 成语猜词 answer for ${dateStr}?`,
-        acceptedAnswer: { '@type': 'Answer', text: `Today's 成语猜词 answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
+        name: `What is today's Chinese Wordle answer for ${dateStr}?`,
+        acceptedAnswer: { '@type': 'Answer', text: `Today's Chinese Wordle answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
       },
       {
         '@type': 'Question',
-        name: `成语猜词 hint 1 for ${dateStr}`,
+        name: `Chinese Wordle hint 1 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint1 }
       },
       {
         '@type': 'Question',
-        name: `成语猜词 hint 2 for ${dateStr}`,
+        name: `Chinese Wordle hint 2 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint2 }
       }
     ]
