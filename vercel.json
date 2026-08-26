@@ -24,44 +24,59 @@
       "permanent": true
     },
     {
-      "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)",
+      "source": "/answer/2026-04-30",
       "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     },
     {
-      "source": "/answer/:date(2026-04-30|2026-05-0[1-9]|2026-05-10)/",
+      "source": "/answer/2026-05-01",
       "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     },
     {
-      "source": "/answer/:date(2026-0[1-4])",
+      "source": "/answer/2026-05-02",
       "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     },
     {
-      "source": "/answer/:date(2026-0[1-4])/",
+      "source": "/answer/2026-05-03",
       "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
     },
     {
-      "source": "/answer/:date(2027-\d{2}-\d{2})",
-      "destination": "/",
-      "permanent": false
+      "source": "/answer/2026-05-04",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
     },
     {
-      "source": "/answer/:date(2027-\d{2}-\d{2})/",
-      "destination": "/",
-      "permanent": false
+      "source": "/answer/2026-05-05",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
     },
     {
-      "source": "/answer/:date(2028-\d{2}-\d{2})",
-      "destination": "/",
-      "permanent": false
+      "source": "/answer/2026-05-06",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
     },
     {
-      "source": "/answer/:date(2028-\d{2}-\d{2})/",
-      "destination": "/",
-      "permanent": false
+      "source": "/answer/2026-05-07",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
+    },
+    {
+      "source": "/answer/2026-05-08",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
+    },
+    {
+      "source": "/answer/2026-05-09",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
+    },
+    {
+      "source": "/answer/2026-05-10",
+      "destination": "/study/chinese-idiom-hsk-guide",
+      "permanent": true
     }
   ],
   "rewrites": [
