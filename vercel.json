@@ -22,61 +22,6 @@
       "source": "/study/chinese-wordle-hsk-guide.html",
       "destination": "/study/chinese-idiom-hsk-guide",
       "permanent": true
-    },
-    {
-      "source": "/answer/2026-04-30",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-01",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-02",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-03",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-04",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-05",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-06",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-07",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-08",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-09",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
-    },
-    {
-      "source": "/answer/2026-05-10",
-      "destination": "/study/chinese-idiom-hsk-guide",
-      "permanent": true
     }
   ],
   "rewrites": [
