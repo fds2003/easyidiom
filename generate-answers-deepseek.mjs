@@ -102,7 +102,7 @@ async function fetchIdiomInfo(idiom) {
 }
 
 // ─── 3. 生成单个 HTML 页面（无改动）────────────────────────────
-function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
+function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
   // ✅ 修复5：用 UTC 解析日期，确保 displayDate 正确
   const utcMs = dateStrToUtcMs(dateStr);
   const d = new Date(utcMs);
@@ -110,10 +110,10 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
   });
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
-  const h1Text = `Chinese Wordle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
-  const seoTitle = `Chinese Wordle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
+  const h1Text = `Chengyu Wordle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
+  const seoTitle = `Chengyu Wordle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Chinese Wordle idiom puzzle on ${displayDate}? Get the daily puzzle hints, character pinyin clues, English translation &amp; final idiom answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const articleDescription = `Need hints or the answer for today's Chengyu Wordle puzzle on ${displayDate}? Get the daily Chinese idiom puzzle hints, character pinyin clues, English translation &amp; final answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -136,22 +136,22 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is Chinese Wordle (成语猜词)?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Chinese Wordle (成语猜词) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
+        name: 'What is Chengyu Wordle (成语猜词)?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Chengyu Wordle (成语猜词) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
       },
       {
         '@type': 'Question',
-        name: `What is today's Chinese Wordle answer for ${dateStr}?`,
-        acceptedAnswer: { '@type': 'Answer', text: `Today's Chinese Wordle answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
+        name: `What is today's Chengyu Wordle answer for ${dateStr}?`,
+        acceptedAnswer: { '@type': 'Answer', text: `Today's Chengyu Wordle answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
       },
       {
         '@type': 'Question',
-        name: `Chinese Wordle hint 1 for ${dateStr}`,
+        name: `Chengyu Wordle hint 1 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint1 }
       },
       {
         '@type': 'Question',
-        name: `Chinese Wordle hint 2 for ${dateStr}`,
+        name: `Chengyu Wordle hint 2 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint2 }
       }
     ]
@@ -222,11 +222,11 @@ summary::before{content:"🔍 "}
 <p style="margin:8px 0 0;color:#6b7280;font-size:14px;">Daily Chinese Idiom Puzzle Game</p>
 </header>
 <h1 style="text-align:center;font-size:22px;">${h1Text}</h1>
-<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com/?date=${dateStr}">Play This Day's Game</a></div>
+<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com/#${gameId || ''}">Play This Day's Game</a></div>
 <div class="chars">
 ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div class="pinyin">${pinyins[i] || ''}</div></div>`).join('')}
 </div>
-<a class="play-btn" href="https://wordlechinese.com/?date=${dateStr}">▶ Play This Day's Game (${dateStr})</a>
+<a class="play-btn" href="https://wordlechinese.com/#${gameId || ''}">▶ Play This Day's Game (${dateStr})</a>
 <div class="section">
 <h2>📖 Meaning <span class="badge ${difficulty}">${difficulty}</span></h2>
 <p><strong>${idiom}</strong> (${info.pinyin})</p>
@@ -303,12 +303,21 @@ function generateSitemaps(generatedDates) {
 </urlset>`
   );
 
+  // Include idiom sitemaps if they exist
+  let idiomSitemapEntries = '';
+  for (let n = 1; n <= 10; n++) {
+    const idiomFile = `sitemap-idioms-${n}.xml`;
+    if (fs.existsSync(`public/${idiomFile}`)) {
+      idiomSitemapEntries += `\n  <sitemap><loc>https://wordlechinese.com/${idiomFile}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
+    }
+  }
+
   fs.writeFileSync('public/sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap><loc>https://wordlechinese.com/sitemap-home.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
   <sitemap><loc>https://wordlechinese.com/answer-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
-  <sitemap><loc>https://wordlechinese.com/category-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
+  <sitemap><loc>https://wordlechinese.com/category-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>${idiomSitemapEntries}
 </sitemapindex>`
   );
   console.log(`📄 sitemap.xml + sitemap-home.xml`);
@@ -370,10 +379,11 @@ function htmlOnlyMode() {
 
     if (!info) { console.warn(`⚠️  ${dateStr} → ${idiom} 缓存未命中，跳过`); continue; }
 
+    const gameId = idioms.find(g => g.idiom === idiom)?.id || '';
     const prevStr = vi > 0 ? validDirs[vi - 1] : null;
     const nextStr = vi < validDirs.length - 1 ? validDirs[vi + 1] : null;
 
-    const html = generateHTML(dateStr, idiom, info, prevStr, nextStr);
+    const html = generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId);
     fs.writeFileSync(path.join(OUTPUT_DIR, dateStr, 'index.html'), html, 'utf-8');
     count++;
   }
@@ -440,10 +450,11 @@ async function main() {
       console.log(`✅ [${i + 1}/${DAYS}] ${dateStr} → ${idiom}（缓存）`);
     }
 
+    const gameId = idioms[i % idioms.length].id;
     const prevStr = i > 0 ? utcMsToDateStr(START_DATE_UTC + (i - 1) * 86400000) : null;
     const nextStr = i < DAYS - 1 ? utcMsToDateStr(START_DATE_UTC + (i + 1) * 86400000) : null;
 
-    const html = generateHTML(dateStr, idiom, info, prevStr, nextStr);
+    const html = generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId);
     fs.mkdirSync(path.join(OUTPUT_DIR, dateStr), { recursive: true });
     fs.writeFileSync(outPath, html, 'utf-8');
     generated++;

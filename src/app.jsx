@@ -1195,7 +1195,7 @@ export function App() {
           <p class="locale-selector">
             🌐{' '}
             <a
-              href="./?lng=en"
+              href="./"
               hreflang="en"
               rel={i18n.resolvedLanguage === 'en' ? undefined : 'alternate'}
               class={`${i18n.resolvedLanguage === 'en' ? 'selected' : ''}`}

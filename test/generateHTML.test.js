@@ -19,12 +19,12 @@ describe('generateHTML', () => {
 
   it('includes year in H1', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, null, '2026-05-16');
-    expect(html).toContain('成语猜词 Answer May 15, 2026');
+    expect(html).toContain('Chengyu Wordle Answer May 15, 2026');
   });
 
   it('includes year in <title>', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', null);
-    expect(html).toContain('<title>成语猜词 Answer May 15, 2026');
+    expect(html).toContain('<title>Chengyu Wordle Answer May 15, 2026');
   });
 
   it('includes Related section with correct difficulty link', () => {
@@ -68,7 +68,7 @@ describe('generateHTML', () => {
   it('includes JSON-LD FAQPage schema', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
     expect(html).toContain('"@type":"FAQPage"');
-    expect(html).toContain('"What is today\'s 成语猜词 answer for 2026-05-15?"');
+    expect(html).toContain('"What is today\'s Chengyu Wordle answer for 2026-05-15?"');
   });
 
   it('includes JSON-LD BreadcrumbList schema', () => {
