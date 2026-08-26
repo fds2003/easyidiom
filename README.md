@@ -4,7 +4,7 @@
 >
 > Guess the hidden Chinese idiom (成语) in 6 tries. A new puzzle every day.
 
-Originally created by [Chee Aun](https://github.com/cheeaun) as "Chengyu Wordle" — a Chinese idiom puzzle game inspired by daily word games, made for Chinese idioms.
+Originally created by [Chee Aun](https://github.com/cheeaun) as "Chengyu Puzzle" — a Chinese idiom puzzle game inspired by daily word games, made for Chinese idioms.
 
 ## Screenshot
 

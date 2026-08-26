@@ -137,8 +137,8 @@ export function buildHskStudyGuideHtml() {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HSK &amp; Chinese Idiom Study Guide — Chengyu Wordle</title>
-  <meta name="description" content="Study hub for HSK learners using Chengyu Wordle: daily Chinese idiom puzzles plus answer pages with pinyin and examples. Internal links to recent chengyu write-ups." />
+  <title>HSK &amp; Chinese Idiom Study Guide — Chengyu Puzzle</title>
+  <meta name="description" content="Study hub for HSK learners using Chengyu Puzzle: daily Chinese idiom puzzles plus answer pages with pinyin and examples. Internal links to recent chengyu write-ups." />
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://wordlechinese.com/study/chinese-idiom-hsk-guide"/>
   <script type="application/ld+json">${webPageJson}</script>

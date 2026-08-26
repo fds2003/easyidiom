@@ -12,6 +12,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Papa from 'papaparse';
 
+import { BRANDING } from './scripts/branding.mjs';
+
 const API_KEY = process.env.DEEPSEEK_API_KEY;
 const START_DATE_STR = '2026-05-11';
 
@@ -110,10 +112,10 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
     year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'
   });
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
-  const h1Text = `Chengyu Wordle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
-  const seoTitle = `Chengyu Wordle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
+  const h1Text = `Chengyu Puzzle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
+  const seoTitle = `Chengyu Puzzle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
   const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Chengyu Wordle puzzle on ${displayDate}? Get the daily Chinese idiom puzzle hints, character pinyin clues, English translation &amp; final answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const articleDescription = `Need hints or the answer for today's Chengyu Puzzle on ${displayDate}? Get the daily Chinese idiom puzzle hints, character pinyin clues, English translation &amp; final answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -136,22 +138,22 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: 'What is Chengyu Wordle (成语猜词)?',
-        acceptedAnswer: { '@type': 'Answer', text: 'Chengyu Wordle (成语猜词) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
+        name: 'What is Chengyu Puzzle (成语猜词)?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Chengyu Puzzle (成语猜词) is a free daily word puzzle game where you guess a hidden Chinese idiom (成语) in 6 tries.' }
       },
       {
         '@type': 'Question',
-        name: `What is today's Chengyu Wordle answer for ${dateStr}?`,
-        acceptedAnswer: { '@type': 'Answer', text: `Today's Chengyu Wordle answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
+        name: `What is today's Chengyu Puzzle answer for ${dateStr}?`,
+        acceptedAnswer: { '@type': 'Answer', text: `Today's Chengyu Puzzle answer is ${idiom} (${info.pinyin}), which means ${info.meaning}` }
       },
       {
         '@type': 'Question',
-        name: `Chengyu Wordle hint 1 for ${dateStr}`,
+        name: `Chengyu Puzzle hint 1 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint1 }
       },
       {
         '@type': 'Question',
-        name: `Chengyu Wordle hint 2 for ${dateStr}`,
+        name: `Chengyu Puzzle hint 2 for ${dateStr}`,
         acceptedAnswer: { '@type': 'Answer', text: info.hint2 }
       }
     ]
