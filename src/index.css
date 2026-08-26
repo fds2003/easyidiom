@@ -11,9 +11,9 @@
   --letter-border-color: var(--border-color);
   --letter-border-active-color: #666;
   --letter-error-border-color: lightcoral;
-  --correct-color: #2b5c8f;
-  --present-color: #e5a93c;
-  --absent-color: #707a8a;
+  --correct-color: #7c3aed;
+  --present-color: #ea580c;
+  --absent-color: #52525b;
   --letter-state-text-color: var(--inverse-text-color);
   --letter-state-border-color: rgba(0, 0, 0, 0.2);
   --keyboard-bg-color: #fafafa;
@@ -53,7 +53,7 @@
     --text-strong-decoration-color: rgba(255, 255, 255, 0.2);
     --letter-border-color: #555;
     --letter-border-active-color: #ccc;
-    --absent-color: #545c66;
+    --absent-color: #404040;
     --keyboard-bg-color: #333;
     --key-bg-color: #52525b;
     --key-shadow-color: #000;

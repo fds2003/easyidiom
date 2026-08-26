@@ -14,9 +14,9 @@ import zhCN from '../i18n/zh-CN.json';
 
 import { App } from './app';
 
-// SEO: Redirect ?lng=en to / to prevent duplicate content indexing
+// SEO: Redirect ?lng=* to / to prevent duplicate content indexing
 const urlParams = new URLSearchParams(location.search);
-if (urlParams.get('lng') === 'en') {
+if (urlParams.has('lng')) {
   urlParams.delete('lng');
   const qs = urlParams.toString();
   const cleanUrl = location.pathname + (qs ? '?' + qs : '') + location.hash;

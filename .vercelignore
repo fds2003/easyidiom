@@ -1,0 +1,14 @@
+node_modules/
+data/
+scripts/
+test/
+.claude/
+.codegraph/
+.freebuff/
+screenshots/
+*.md
+*.mjs
+*.test.js
+playwright.config.js
+.vscode/
+.DS_Store

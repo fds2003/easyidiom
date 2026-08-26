@@ -1208,7 +1208,7 @@ export function App() {
             </a>{' '}
             &#8901;{' '}
             <a
-              href="./?lng=zh-CN"
+              href="./"
               hreflang="zh-CN"
               rel={i18n.resolvedLanguage === 'zh' ? undefined : 'alternate'}
               class={`${i18n.resolvedLanguage === 'zh' ? 'selected' : ''}`}
