@@ -396,6 +396,23 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
     footer a {
       color: var(--light-text);
     }
+    .pronounce-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      vertical-align: middle;
+      margin-left: 8px;
+      padding: 4px;
+      border-radius: 50%;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .pronounce-btn:hover {
+      background-color: var(--border-color);
+    }
+    .pronounce-btn:active {
+      transform: scale(0.9);
+    }
   </style>
 </head>
 <body>
@@ -410,7 +427,7 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
     <span>${word}</span>
   </div>
 
-  <h1>${word} (${pinyin})</h1>
+  <h1>${word} (${pinyin})<button class="pronounce-btn" onclick="speak('${word}')" title="Listen to pronunciation">🔊</button></h1>
   <div class="difficulty-container">
     <span class="badge">${difficulty}</span>
   </div>
@@ -460,6 +477,20 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
     <p>© ${new Date().getFullYear()} <a href="${BRANDING.siteUrl}">${BRANDING.primaryName}</a> · 
     <a href="/privacy">Privacy Policy</a></p>
   </footer>
+  
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'zh-CN';
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Text-to-speech not supported in this browser.');
+      }
+    }
+  </script>
 </body>
 </html>`;
 }
