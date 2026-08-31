@@ -1,0 +1,84 @@
+=== SEO OPPORTUNITIES BY TYPE ===
+无点击但排名前20 | n= 122 | imp= 1075 | avg_rank= 7.3
+接近首页（排名11-20） | n= 17 | imp= 186 | avg_rank= 14.8
+高跳出率 | n= 2 | imp= None | avg_rank= None
+
+=== NON-ANSWER SEO OPPORTUNITIES ===
+无点击但排名前20 | imp= 345 | rank= 13.3 | https://wordlechinese.com/learn-chinese-with-idioms
+无点击但排名前20 | imp= 133 | rank= 12.2 | https://wordlechinese.com/learn-chinese-with-idioms
+无点击但排名前20 | imp= 133 | rank= 12.2 | https://wordlechinese.com/learn-chinese-with-idioms
+无点击但排名前20 | imp= 111 | rank= 12.6 | https://wordlechinese.com/learn-chinese-with-idioms
+接近首页（排名11-20） | imp= 20 | rank= 18.4 | hanzi wordle
+接近首页（排名11-20） | imp= 19 | rank= 16.9 | hanzi wordle
+接近首页（排名11-20） | imp= 19 | rank= 14.6 | hanzi wordle
+接近首页（排名11-20） | imp= 18 | rank= 18.4 | hanzi wordle
+接近首页（排名11-20） | imp= 17 | rank= 16.8 | hanzi wordle
+接近首页（排名11-20） | imp= 17 | rank= 14.2 | hanzi wordle
+接近首页（排名11-20） | imp= 11 | rank= 18.6 | hanzi wordle
+无点击但排名前20 | imp= 10 | rank= 17.6 | https://wordlechinese.com/study/chinese-wordle-hsk-guide
+接近首页（排名11-20） | imp= 9 | rank= 12.9 | wordle chino
+无点击但排名前20 | imp= 8 | rank= 18.1 | https://wordlechinese.com/study/chinese-wordle-hsk-guide
+无点击但排名前20 | imp= 8 | rank= 19.9 | https://wordlechinese.com/study/chinese-wordle-hsk-guide
+接近首页（排名11-20） | imp= 7 | rank= 13.1 | wordle chino
+无点击但排名前20 | imp= 7 | rank= 5.9 | https://wordlechinese.com/?lng=zh-CN
+无点击但排名前20 | imp= 7 | rank= 5.9 | https://wordlechinese.com/?lng=zh-CN
+无点击但排名前20 | imp= 7 | rank= 5.9 | https://wordlechinese.com/?lng=zh-CN
+接近首页（排名11-20） | imp= 7 | rank= 13.9 | hanzi wordle
+接近首页（排名11-20） | imp= 7 | rank= 11.6 | 成语 wordle
+接近首页（排名11-20） | imp= 7 | rank= 13.9 | hanzi wordle
+接近首页（排名11-20） | imp= 7 | rank= 11.6 | 成语 wordle
+接近首页（排名11-20） | imp= 7 | rank= 11.6 | 成语 wordle
+接近首页（排名11-20） | imp= 6 | rank= 11.8 | hanzi wordle
+
+=== GA4 TRAFFIC SOURCES (wordlechinese.com) ===
+sess= 12 | eng= 2 | new= 13 | pv= 14 | (direct) / (none)
+sess= 6 | eng= 6 | new= 6 | pv= 8 | google / organic
+sess= 2 | eng= 2 | new= 2 | pv= 4 | vercel.com / referral
+ga4_content rows for property_537660474: 0
+ga4_events rows for property_537660474: 0
+ga4_conversions rows for property_537660474: 0
+ga4_page_performance rows for property_537660474: 0
+bing_pages domains: ['aidevhub.net', 'funtesthub.com', 'getsheetmaster.com', 'wordlechinese.com']
+bing_queries domains: ['aidevhub.net', 'funtesthub.com', 'getsheetmaster.com', 'wordlechinese.com']
+bing_url_info domains: ['funtesthub.com', 'wordlechinese.com']
+bing_traffic domains: ['aidevhub.net', 'ainavhub.top', 'costcohotdogguide.com', 'funtesthub.com', 'getsheetmaster.com', 'wordlechinese.com']
+bing_crawl_stats domains: ['aidevhub.net', 'ainavhub.top', 'costcohotdogguide.com', 'funtesthub.com', 'getsheetmaster.com', 'wordlechinese.com']
+
+=== RANKING HISTORY (wordlechinese.com, latest) ===
+2026-08-26 | gsc | pos= 5.7 | clicks= 0 | imp= 37 | asian wordle
+2026-08-26 | gsc | pos= 36.0 | clicks= 0 | imp= 1 | cantonese wordle
+2026-08-26 | gsc | pos= 16.0 | clicks= 0 | imp= 4 | cheng yu wordle
+2026-08-26 | gsc | pos= 3.4 | clicks= 7 | imp= 459 | chengyu wordle
+2026-08-26 | gsc | pos= 4.9 | clicks= 0 | imp= 12 | chenyu wordle
+2026-08-26 | gsc | pos= 8.6 | clicks= 0 | imp= 8 | china wordle
+2026-08-26 | gsc | pos= 5.0 | clicks= 0 | imp= 1 | china wordle today
+2026-08-26 | gsc | pos= 5.5 | clicks= 21 | imp= 515 | chinese wordle
+2026-08-26 | gsc | pos= 6.2 | clicks= 0 | imp= 15 | chinese worlde
+2026-08-26 | gsc | pos= 39.0 | clicks= 0 | imp= 1 | conundrum in chinese
+2026-08-26 | gsc | pos= 7.3 | clicks= 0 | imp= 6 | hanzi wordle
+2026-08-26 | gsc | pos= 6.4 | clicks= 0 | imp= 14 | mandarin wordle
+2026-08-26 | gsc | pos= 2.0 | clicks= 0 | imp= 1 | mobile game
+2026-08-26 | gsc | pos= 3.0 | clicks= 0 | imp= 1 | more game ideas
+2026-08-26 | gsc | pos= 6.5 | clicks= 1 | imp= 15 | pinyin wordle
+2026-08-26 | gsc | pos= 69.0 | clicks= 0 | imp= 1 | pinyindle
+2026-08-26 | gsc | pos= 9.2 | clicks= 0 | imp= 6 | puzzle in mandarin
+2026-08-26 | gsc | pos= 4.2 | clicks= 0 | imp= 8 | wordle asian
+2026-08-26 | gsc | pos= 3.2 | clicks= 1 | imp= 13 | wordle china
+2026-08-26 | gsc | pos= 4.0 | clicks= 21 | imp= 119 | wordle chinese
+2026-08-26 | gsc | pos= 4.2 | clicks= 2 | imp= 17 | wordle chino
+2026-08-26 | gsc | pos= 8.3 | clicks= 1 | imp= 22 | wordle in chinese
+2026-08-26 | gsc | pos= 6.0 | clicks= 0 | imp= 2 | wordle 中文
+2026-08-26 | gsc | pos= 7.2 | clicks= 0 | imp= 5 | 中文wordle
+2026-08-26 | gsc | pos= 3.0 | clicks= 0 | imp= 1 | 中文猜字遊戲
+2026-08-26 | gsc | pos= 9.0 | clicks= 0 | imp= 2 | 成語wordle
+2026-08-26 | gsc | pos= 8.1 | clicks= 0 | imp= 7 | 成语 wordle
+2026-08-26 | gsc | pos= 7.4 | clicks= 0 | imp= 8 | 成语wordle
+2026-08-20 | gsc | pos= 5.8 | clicks= 0 | imp= 38 | asian wordle
+2026-08-20 | gsc | pos= 36.0 | clicks= 0 | imp= 1 | cantonese wordle
+
+=== RANKING CHANGES (tracked items) ===
+2026-08-20 | gsc | chinese worlde | stable | clicks | prev= 6.2 ->curr= 6.4
+2026-08-20 | gsc | hanzi wordle | improved | clicks | prev= 13.9 ->curr= 8.6
+2026-08-20 | gsc | wordle in chinese | stable | clicks | prev= 7.7 ->curr= 8.3
+
+=== GA4 PAGE PERFORMANCE (property) ===

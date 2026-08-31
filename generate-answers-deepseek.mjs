@@ -114,8 +114,9 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
   const difficulty = info.difficulty || 'medium'; // fallback for bad API data
   const h1Text = `Chengyu Puzzle Answer ${displayDate} — ${idiom} (${info.pinyin})`;
   const seoTitle = `Chengyu Puzzle Answer ${displayDate} — ${idiom} (${info.pinyin}) | 每日成语猜词答案`;
-  const pageUrl = `https://wordlechinese.com/answer/${dateStr}/`;
-  const articleDescription = `Need hints or the answer for today's Chengyu Puzzle on ${displayDate}? Get the daily Chinese idiom puzzle hints, character pinyin clues, English translation &amp; final answer here. Play daily at wordlechinese.com! 每日成语猜词答案与详解。`;
+  const SITE_URL = BRANDING.siteUrl;
+  const pageUrl = `${SITE_URL}/answer/${dateStr}/`;
+  const articleDescription = `Need hints or the answer for today's Chengyu Puzzle on ${displayDate}? Get the daily Chinese idiom puzzle hints, character pinyin clues, English translation &amp; final answer here. Play daily at ${SITE_URL}! 每日成语猜词答案与详解。`;
 
   const chars = idiom.split('');
   const pinyins = info.pinyin.split(' ');
@@ -129,7 +130,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
     dateModified: `${dateStr}T00:00:00.000Z`,
     url: pageUrl,
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${pageUrl}` },
-    publisher: { '@type': 'Organization', name: '成语猜词', url: 'https://wordlechinese.com' }
+    publisher: { '@type': 'Organization', name: '成语猜词', url: SITE_URL }
   });
 
   const faqJSON = JSON.stringify({
@@ -163,8 +164,8 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: '成语猜词', item: 'https://wordlechinese.com/' },
-      { '@type': 'ListItem', position: 2, name: `Answer for ${dateStr}`, item: `https://wordlechinese.com/answer/${dateStr}/` }
+      { '@type': 'ListItem', position: 1, name: '成语猜词', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: `Answer for ${dateStr}`, item: `${SITE_URL}/answer/${dateStr}/` }
     ]
   });
 
@@ -181,8 +182,8 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
 <meta name="robots" content="index, follow"/>
 <meta property="og:url" content="${pageUrl}"/>
 <link rel="canonical" href="${pageUrl}"/>
-<link rel="alternate" hreflang="en" href="https://wordlechinese.com/answer/${dateStr}/"/>
-<link rel="alternate" hreflang="x-default" href="https://wordlechinese.com/answer/${dateStr}/"/>
+<link rel="alternate" hreflang="en" href="${SITE_URL}/answer/${dateStr}/"/>
+<link rel="alternate" hreflang="x-default" href="${SITE_URL}/answer/${dateStr}/"/>
 <meta property="og:title" content="${seoTitle}"/>
 <meta property="og:description" content="${articleDescription}"/>
 <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
@@ -220,15 +221,15 @@ summary::before{content:"🔍 "}
 </head>
 <body>
 <header>
-<a href="https://wordlechinese.com">🀄 成语猜词</a>
+<a href="${SITE_URL}">🀄 成语猜词</a>
 <p style="margin:8px 0 0;color:#6b7280;font-size:14px;">Daily Chinese Idiom Puzzle Game</p>
 </header>
 <h1 style="text-align:center;font-size:22px;">${h1Text}</h1>
-<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="https://wordlechinese.com/#${gameId || ''}">Play This Day's Game</a></div>
+<div class="spoiler">⚠️ <strong>Spoiler Warning!</strong> Today's answer is revealed below. Try playing first → <a href="${SITE_URL}/#${gameId || ''}">Play This Day's Game</a></div>
 <div class="chars">
 ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div class="pinyin">${pinyins[i] || ''}</div></div>`).join('')}
 </div>
-<a class="play-btn" href="https://wordlechinese.com/#${gameId || ''}">▶ Play This Day's Game (${dateStr})</a>
+<a class="play-btn" href="${SITE_URL}/#${gameId || ''}">▶ Play This Day's Game (${dateStr})</a>
 <div class="section">
 <h2>📖 Meaning <span class="badge ${difficulty}">${difficulty}</span></h2>
 <p><strong>${idiom}</strong> (${info.pinyin})</p>
@@ -264,12 +265,12 @@ ${chars.map((c, i) => `<div class="char-box"><div class="hanzi">${c}</div><div c
 </p>
 </div>
 <div class="nav">
-${isFirst ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answer/${prevStr}/">← ${prevStr}</a>`}
-<a href="https://wordlechinese.com">🏠 Today's Game</a>
-${isLast ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answer/${nextStr}/">${nextStr} →</a>`}
+${isFirst ? `<a href="${SITE_URL}">🏠 Home</a>` : `<a href="/answer/${prevStr}/">← ${prevStr}</a>`}
+<a href="${SITE_URL}">🏠 Today's Game</a>
+${isLast ? `<a href="${SITE_URL}">🏠 Home</a>` : `<a href="/answer/${nextStr}/">${nextStr} →</a>`}
 </div>
 <footer style="text-align:center;margin-top:40px;color:#9ca3af;font-size:13px">
-<p>© ${new Date().getUTCFullYear()} <a href="https://wordlechinese.com" style="color:#6b7280">成语猜词</a> · <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
+<p>© ${new Date().getUTCFullYear()} <a href="${SITE_URL}" style="color:#6b7280">成语猜词</a> · <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
 </footer>
 </body>
 </html>`;
@@ -279,6 +280,7 @@ ${isLast ? `<a href="https://wordlechinese.com">🏠 Home</a>` : `<a href="/answ
 function generateSitemaps(generatedDates) {
   const todayUtcMs = getTodayUtcMs();
   const todayStr = utcMsToDateStr(todayUtcMs);
+  const SITE_URL = BRANDING.siteUrl;
 
   // 过滤出今天及以前的日期，防止未来预生成的页面被提前抓取导致零点击曝光
   const activeDates = generatedDates.filter(ds => ds <= todayStr);
@@ -286,7 +288,7 @@ function generateSitemaps(generatedDates) {
 
   // answer-sitemap.xml：只写已发布（今天及以前）的日期
   const entries = activeDates.map(ds =>
-    `  <url><loc>https://wordlechinese.com/answer/${ds}/</loc><lastmod>${ds}</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>`
+    `  <url><loc>${SITE_URL}/answer/${ds}/</loc><lastmod>${ds}</lastmod><changefreq>never</changefreq><priority>0.6</priority></url>`
   ).join('\n');
 
   fs.writeFileSync('public/answer-sitemap.xml',
@@ -298,10 +300,10 @@ function generateSitemaps(generatedDates) {
   fs.writeFileSync('public/sitemap-home.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wordlechinese.com/</loc><lastmod>${lastmod}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://wordlechinese.com/learn-chinese-with-idioms</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://wordlechinese.com/study/chinese-idiom-hsk-guide</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
-  <url><loc>https://wordlechinese.com/privacy</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>${SITE_URL}/</loc><lastmod>${lastmod}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>${SITE_URL}/learn-chinese-with-idioms</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>${SITE_URL}/study/chinese-idiom-hsk-guide</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.65</priority></url>
+  <url><loc>${SITE_URL}/privacy</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>`
   );
 
@@ -310,16 +312,16 @@ function generateSitemaps(generatedDates) {
   for (let n = 1; n <= 10; n++) {
     const idiomFile = `sitemap-idioms-${n}.xml`;
     if (fs.existsSync(`public/${idiomFile}`)) {
-      idiomSitemapEntries += `\n  <sitemap><loc>https://wordlechinese.com/${idiomFile}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
+      idiomSitemapEntries += `\n  <sitemap><loc>${SITE_URL}/${idiomFile}</loc><lastmod>${lastmod}</lastmod></sitemap>`;
     }
   }
 
   fs.writeFileSync('public/sitemap.xml',
     `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://wordlechinese.com/sitemap-home.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
-  <sitemap><loc>https://wordlechinese.com/answer-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
-  <sitemap><loc>https://wordlechinese.com/category-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>${idiomSitemapEntries}
+  <sitemap><loc>${SITE_URL}/sitemap-home.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
+  <sitemap><loc>${SITE_URL}/answer-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
+  <sitemap><loc>${SITE_URL}/category-sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>${idiomSitemapEntries}
 </sitemapindex>`
   );
   console.log(`📄 sitemap.xml + sitemap-home.xml`);

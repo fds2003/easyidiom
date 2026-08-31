@@ -78,7 +78,7 @@ describe('generateHTML', () => {
 
   it('includes canonical URL', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
-    expect(html).toContain('href="https://wordlechinese.com/answer/2026-05-15/"');
+    expect(html).toContain('href="https://easyidiom.com/answer/2026-05-15/"');
   });
 
   it('handles first page (no prev)', () => {
@@ -106,7 +106,7 @@ describe('generateHTML', () => {
 
   it('meta description includes CTA to play daily', () => {
     const html = generateHTML('2026-05-15', '余波未平', defaultInfo, '2026-05-14', '2026-05-16');
-    expect(html).toContain('Play daily at wordlechinese.com!');
+    expect(html).toContain('Play daily at https://easyidiom.com!');
   });
 
   it('meta description uses &amp; instead of plain "and"', () => {

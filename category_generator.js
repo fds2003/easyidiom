@@ -11,9 +11,11 @@ import fs from 'fs';
 import Papa from 'papaparse';
 import path from 'path';
 
+import { BRANDING, replaceBranding } from './scripts/branding.mjs';
+
 const CACHE_FILE = 'scripts/idiom-cache.json';
 const OUTPUT_DIR = 'public/idioms';
-const SITE_URL = 'https://wordlechinese.com';
+const SITE_URL = BRANDING.siteUrl;
 
 // ─── 主题关键词映射 ────────────────────────────────────────────
 // 每个主题包含若干中文关键字，成语中含这些字即归入该主题
@@ -331,18 +333,18 @@ function generatePage({
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>${label} Chinese Idioms | Chengyu Guesser</title>
-  <meta name="description" content="${description}"/>
+  <title>${label} Chinese Idioms | ${BRANDING.primaryName}</title>
+  <meta name="description" content="${replaceBranding(description)}"/>
   <link rel="canonical" href="${SITE_URL}${canonicalPath}"/>
-  <meta property="og:title" content="${label} Chinese Idioms | Chengyu Guesser"/>
-  <meta property="og:description" content="${description}"/>
+  <meta property="og:title" content="${label} Chinese Idioms | ${BRANDING.primaryName}"/>
+  <meta property="og:description" content="${replaceBranding(description)}"/>
   <meta property="og:url" content="${SITE_URL}${canonicalPath}"/>
   <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="${label} Chinese Idioms | Chengyu Guesser"/>
-  <meta name="twitter:description" content="${description}"/>
+  <meta name="twitter:title" content="${label} Chinese Idioms | ${BRANDING.primaryName}"/>
+  <meta name="twitter:description" content="${replaceBranding(description)}"/>
   <meta name="twitter:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta name="robots" content="index, follow"/>
   <link rel="alternate" hreflang="en" href="${SITE_URL}${canonicalPath}"/>
@@ -394,7 +396,7 @@ function generatePage({
 </head>
 <body>
   <header>
-    <a href="${SITE_URL}">🀄 Chengyu Guesser</a>
+    <a href="${SITE_URL}">🀄 ${BRANDING.primaryName}</a>
     <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Guessing Game</p>
   </header>
 
@@ -404,7 +406,7 @@ function generatePage({
   <p class="subtitle">${description}</p>
   <p class="count">${items.length} idioms in this collection</p>
 
-  <a class="play-btn" href="${SITE_URL}">▶ Play Chengyu Guesser Daily</a>
+  <a class="play-btn" href="${SITE_URL}">▶ Play ${BRANDING.primaryName} Daily</a>
 
   <div class="grid">
     ${items.map((item) => idiomCard(item, dateMap)).join('')}
@@ -416,7 +418,7 @@ function generatePage({
   </nav>
 
   <footer>
-    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">Chengyu Guesser</a> ·
+    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">${BRANDING.primaryName}</a> ·
     <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>
@@ -440,8 +442,8 @@ function generateIndexPage(categories) {
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chinese Idiom Categories | Chengyu Guesser</title>
-  <meta name="description" content="Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Chengyu Guesser daily."/>
+  <title>Chinese Idiom Categories | ${BRANDING.primaryName}</title>
+  <meta name="description" content="Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play ${BRANDING.primaryName} daily."/>
   <link rel="canonical" href="${SITE_URL}/idioms/"/>
   <script type="application/ld+json">
   {
@@ -450,10 +452,10 @@ function generateIndexPage(categories) {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How many Chinese idioms are on Chengyu Guesser?",
+        "name": "How many Chinese idioms are on ${BRANDING.primaryName}?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Chengyu Guesser has 7,200+ idioms organized by difficulty (easy, medium, hard) and theme (animals, numbers, nature, people, colors)."
+          "text": "${BRANDING.primaryName} has 7,200+ idioms organized by difficulty (easy, medium, hard) and theme (animals, numbers, nature, people, colors)."
         }
       },
       {
@@ -479,8 +481,8 @@ function generateIndexPage(categories) {
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Chinese Idiom Categories | Chengyu Guesser",
-    "description": "Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play Chengyu Guesser daily.",
+    "name": "Chinese Idiom Categories | ${BRANDING.primaryName}",
+    "description": "Browse Chinese idioms by difficulty or theme — animals, numbers, nature, colors and more. Play ${BRANDING.primaryName} daily.",
     "url": "${SITE_URL}/idioms/"
   }
   </script>
@@ -492,7 +494,7 @@ function generateIndexPage(categories) {
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "Chengyu Guesser",
+        "name": "${BRANDING.primaryName}",
         "item": "${SITE_URL}/"
       },
       {
@@ -524,14 +526,14 @@ function generateIndexPage(categories) {
 </head>
 <body>
   <header>
-    <a href="${SITE_URL}">🀄 Chengyu Guesser</a>
+    <a href="${SITE_URL}">🀄 ${BRANDING.primaryName}</a>
     <p style="margin:8px 0 0;color:#6b7280;font-size:14px">Daily Chinese Idiom Guessing Game</p>
   </header>
 
   <h1>Browse Chinese Idioms</h1>
   <p style="color:#6b7280">Explore our collection of Chinese idioms (成语) by difficulty or theme.</p>
 
-  <a class="play-btn" href="${SITE_URL}">▶ Play Chengyu Guesser Daily</a>
+  <a class="play-btn" href="${SITE_URL}">▶ Play ${BRANDING.primaryName} Daily</a>
 
   <h2 style="font-size:18px;margin-bottom:8px">By Difficulty</h2>
   <div class="grid">${categories
@@ -560,7 +562,7 @@ function generateIndexPage(categories) {
     .join('')}</div>
 
   <footer>
-    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">Chengyu Guesser</a> ·
+    <p>© ${new Date().getFullYear()} <a href="${SITE_URL}" style="color:#6b7280">${BRANDING.primaryName}</a> ·
     <a href="/privacy" style="color:#6b7280">Privacy Policy</a></p>
   </footer>
 </body>

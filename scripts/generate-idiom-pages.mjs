@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+import { BRANDING } from './branding.mjs';
+
 // ─── 配置与路径 ────────────────────────────────────────────────
 const GAME_IDIOMS_CSV = path.join(process.cwd(), 'game-data/game-idioms.csv');
 const IDIOM_CACHE_JSON = path.join(process.cwd(), 'scripts/idiom-cache.json');
@@ -105,7 +107,7 @@ async function main() {
     fs.mkdirSync(idiomDir, { recursive: true });
     fs.writeFileSync(path.join(idiomDir, 'index.html'), html, 'utf-8');
 
-    generatedUrls.push(`https://wordlechinese.com/idiom/${slug}`);
+    generatedUrls.push(`${BRANDING.siteUrl}/idiom/${slug}`);
     count++;
     if (count % 1000 === 0) {
       console.log(`✨ 已生成 ${count} 个成语单页...`);
@@ -157,27 +159,27 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | Chinese Wordle Guide</title>
-  <meta name="description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at Chengyu Guesser."/>
-  <link rel="canonical" href="https://wordlechinese.com/idiom/${slug}"/>
-  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | Chinese Wordle Guide"/>
-  <meta property="og:description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
-  <meta property="og:url" content="https://wordlechinese.com/idiom/${slug}"/>
+  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | ${BRANDING.primaryName}</title>
+  <meta name="description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at ${BRANDING.primaryName}."/>
+  <link rel="canonical" href="${BRANDING.siteUrl}/idiom/${slug}"/>
+  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | ${BRANDING.primaryName}"/>
+  <meta property="og:description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta property="og:url" content="${BRANDING.siteUrl}/idiom/${slug}"/>
   <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
   <meta property="og:type" content="article"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | Chinese Wordle Guide"/>
-  <meta name="twitter:description" content="Study the Chinese Wordle idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | ${BRANDING.primaryName}"/>
+  <meta name="twitter:description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Chinese Wordle Idiom ${word} (${pinyin}) Meaning &amp; Examples",
+    "headline": "${BRANDING.primaryName} Idiom ${word} (${pinyin}) Meaning &amp; Examples",
     "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${word}.",
     "publisher": {
       "@type": "Organization",
-      "name": "成语猜词",
-      "url": "https://wordlechinese.com"
+      "name": "${BRANDING.zhName}",
+      "url": "${BRANDING.siteUrl}"
     }
   }
   </script>
@@ -329,13 +331,13 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
 </head>
 <body>
   <header>
-    <a href="https://wordlechinese.com">🀄 Chengyu Guesser</a>
+    <a href="${BRANDING.siteUrl}">🀄 ${BRANDING.primaryName}</a>
     <p style="margin:8px 0 0;color:var(--light-text);font-size:14px">Daily Chinese Idiom Guessing Game</p>
   </header>
 
   <div class="breadcrumb">
-    <a href="https://wordlechinese.com">Home</a> &gt; 
-    <a href="https://wordlechinese.com/idioms/">Browse Idioms</a> &gt; 
+    <a href="${BRANDING.siteUrl}">Home</a> &gt; 
+    <a href="${BRANDING.siteUrl}/idioms/">Browse Idioms</a> &gt; 
     <span>${word}</span>
   </div>
 
@@ -348,7 +350,7 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
     ${charCardsHtml}
   </div>
 
-  <a class="play-btn" href="https://wordlechinese.com/#${gameId}">▶ Play this Idiom Challenge (在游戏中猜这道题)</a>
+  <a class="play-btn" href="${BRANDING.siteUrl}/#${gameId}">▶ Play this Idiom Challenge (在游戏中猜这道题)</a>
 
   ${meaning ? `
   <div class="section-card">
@@ -375,7 +377,7 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   </div>` : ''}
 
   <footer>
-    <p>© ${new Date().getFullYear()} <a href="https://wordlechinese.com">Chengyu Guesser</a> · 
+    <p>© ${new Date().getFullYear()} <a href="${BRANDING.siteUrl}">${BRANDING.primaryName}</a> · 
     <a href="/privacy">Privacy Policy</a></p>
   </footer>
 </body>
@@ -393,13 +395,13 @@ function updateSitemapIndex(newSitemaps) {
   // 构建新的 sitemap index 项
   const lastmod = new Date().toISOString().split('T')[0];
   const newEntries = newSitemaps.map((sitemap) => 
-    `  <sitemap><loc>https://wordlechinese.com/${sitemap}</loc><lastmod>${lastmod}</lastmod></sitemap>`
+    `  <sitemap><loc>${BRANDING.siteUrl}/${sitemap}</loc><lastmod>${lastmod}</lastmod></sitemap>`
   ).join('\n');
 
   // 在 </sitemapindex> 前插入新 entries
   if (sitemapIndexContent.includes('</sitemapindex>')) {
-    // 移除已经存在的 sitemap-idioms 标签防止重复注入
-    sitemapIndexContent = sitemapIndexContent.replace(/  <sitemap><loc>https:\/\/wordlechinese\.com\/sitemap-idioms-\d+\.xml<\/loc>.*<\/sitemap>\n?/g, '');
+    const domainCleanRegex = new RegExp(`  <sitemap><loc>https://(wordlechinese\\.com|easyidiom\\.com)/sitemap-idioms-\\d+\\.xml</loc>.*</sitemap>\\n?`, 'g');
+    sitemapIndexContent = sitemapIndexContent.replace(domainCleanRegex, '');
     
     sitemapIndexContent = sitemapIndexContent.replace(
       '</sitemapindex>',
