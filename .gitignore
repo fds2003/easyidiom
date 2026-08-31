@@ -14,3 +14,7 @@ doc/
 docs/
 .vercel
 .env*.local
+.freebuff/
+.codegraph/
+scratch/
+.gemini/
