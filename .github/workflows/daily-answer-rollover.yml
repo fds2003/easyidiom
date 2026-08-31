@@ -45,6 +45,7 @@ jobs:
           node generate-answers-deepseek.mjs --html-only
           node category_generator.js
           node scripts/generate-topic-lists.mjs
+          node scripts/generate-dramas.mjs
 
       - name: Commit and push changes
         run: |

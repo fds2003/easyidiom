@@ -1,0 +1,75 @@
+[
+  {
+    "slug": "hidden-love",
+    "title": "Hidden Love Famous Quotes & Pinyin Character Guide",
+    "description": "Learn the most romantic Chinese quotes and character guide from the hit drama Hidden Love (偷偷藏不住) with pinyin, English translations and audio.",
+    "intro": "The hit romance drama <em>Hidden Love</em> (偷偷藏不住) has captured millions of hearts worldwide. Beyond the sweet romance between Sang Zhi and Duan Jiaxu, the series offers a beautiful way to learn conversational Chinese and cultural idioms. Below is a curated list of the most romantic quotes from the show, complete with Pinyin, audio pronunciation, and a character guide mapped to meaningful Chengyu.",
+    "quotes": [
+      {
+        "chinese": "桑稚，我有的，都给你。",
+        "pinyin": "Sāng Zhì, wǒ yǒu de, dōu gěi nǐ.",
+        "english": "Sang Zhi, whatever I have, I will give all of it to you."
+      },
+      {
+        "chinese": "你是我此生唯一的目标。",
+        "pinyin": "Nǐ shì wǒ cǐ shēng wéi yī de mù biāo.",
+        "english": "You are the only goal of my entire life."
+      },
+      {
+        "chinese": "别怕，段嘉许哥哥一辈子保护你。",
+        "pinyin": "Bié pà, Duàn Jiā xǔ gē ge yī bèizi bǎohù nǐ.",
+        "english": "Don't be afraid. Brother Duan Jiaxu will protect you for the rest of his life."
+      }
+    ],
+    "characters": [
+      {
+        "name": "Duan Jiaxu (段嘉许)",
+        "relationship": "Male Lead / Sang Zhi's Devoted Protector",
+        "idiom": "情有独钟",
+        "idiomSlug": "qing-you-du-zhong",
+        "desc": "Devoted and loving, showing deep and exclusive affection. Mapped to Duan Jiaxu's unwavering love for Sang Zhi."
+      },
+      {
+        "name": "Sang Zhi (桑稚)",
+        "relationship": "Female Lead / Who kept a secret crush for years",
+        "idiom": "一往情深",
+        "idiomSlug": "yi-wang-qing-shen",
+        "desc": "Deeply attached and bound by deep affection from the very beginning."
+      }
+    ]
+  },
+  {
+    "slug": "pursuit-of-jade",
+    "title": "The Pursuit of Jade Family Tree & Character Idiom Guide",
+    "description": "Navigate the complex family relationships and character roles in Chinese ancient drama The Pursuit of Jade (度华年) with Pinyin, English guides and idioms.",
+    "intro": "The ancient royal drama <em>The Pursuit of Jade</em> (度华年) is famous for its intricate political plots and complex family relations. For international viewers, sorting out the dynasty ranks, cousin relations, and court titles can be challenging. Here is the ultimate family tree guide and character breakdown, using classic Chinese idioms to capture their personalities.",
+    "quotes": [
+      {
+        "chinese": "两生之约，此生不负。",
+        "pinyin": "Liǎng shēng zhī yuē, cǐ shēng bù fù.",
+        "english": "The vow of two lifetimes, I will not fail you in this life."
+      },
+      {
+        "chinese": "在这朝堂之上，只有利益才是永恒的。",
+        "pinyin": "Zài zhè cháo táng zhī shàng, zhǐ yǒu lì yì cái shì yǒng héng de.",
+        "english": "In this court, only interests are eternal."
+      }
+    ],
+    "characters": [
+      {
+        "name": "Pei Wenxuan (裴文宣)",
+        "relationship": "Male Lead / Prime Minister / Reborn Husband",
+        "idiom": "相濡以沫",
+        "idiomSlug": "xiang-ru-yi-mo",
+        "desc": "To moisten each other with spit; sharing lives and helping each other in times of extreme adversity."
+      },
+      {
+        "name": "Li Rong (李蓉)",
+        "relationship": "Female Lead / Royal Princess / Reborn Wife",
+        "idiom": "大智若愚",
+        "idiomSlug": "da-zhi-ruo-yu",
+        "desc": "A man of great wisdom often appears slow-witted. Captures Li Rong's sharp political foresight hidden under a calm royal posture."
+      }
+    ]
+  }
+]
