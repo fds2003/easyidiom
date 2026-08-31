@@ -12,6 +12,22 @@ const OUTPUT_DIR = path.join(PUBLIC_DIR, 'idiom');
 const SITEMAP_INDEX_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
 
 // ─── 辅助函数 ──────────────────────────────────────────────────
+// 安全重试写入文件，规避偶发的防病毒扫描器锁死
+function writeFileSyncWithRetry(filePath, content, options, retries = 3, delay = 50) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      fs.writeFileSync(filePath, content, options);
+      return;
+    } catch (err) {
+      if (i === retries - 1) throw err;
+      const start = Date.now();
+      while (Date.now() - start < delay) {
+        // 同步延时等待
+      }
+    }
+  }
+}
+
 // 拼音去声调并 Slug 化
 function toSlug(pinyinStr) {
   if (!pinyinStr) return '';
@@ -105,7 +121,7 @@ async function main() {
     const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty);
     const idiomDir = path.join(OUTPUT_DIR, slug);
     fs.mkdirSync(idiomDir, { recursive: true });
-    fs.writeFileSync(path.join(idiomDir, 'index.html'), html, 'utf-8');
+    writeFileSyncWithRetry(path.join(idiomDir, 'index.html'), html, 'utf-8');
 
     generatedUrls.push(`${BRANDING.siteUrl}/idiom/${slug}`);
     count++;
@@ -157,6 +173,15 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDHD1VQKGD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDHD1VQKGD');
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | ${BRANDING.primaryName}</title>
