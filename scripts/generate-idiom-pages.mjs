@@ -89,27 +89,52 @@ async function main() {
   }
   console.log('✅ 大字典索引建立完成！');
 
-  // 4. 数据融合并渲染页面
+  // 4. 数据融合并建立接龙映射
+  const charMap = new Map();
+  const pinyinMap = new Map();
+  const allGameIdioms = [];
+
+  for (const item of gameIdioms) {
+    const word = item.idiom;
+    const cacheData = idiomCache[word] || {};
+    const dictData = dictMap.get(word) || {};
+    const pinyin = formatPinyinDisplay(cacheData.pinyin || dictData.pinyin || '');
+    if (!pinyin) continue;
+    const slug = toSlug(pinyin);
+    if (!slug) continue;
+
+    const pinyinParts = pinyin.split(' ');
+    const firstChar = word.charAt(0);
+    const lastChar = word.charAt(word.length - 1);
+    
+    // 拼音去声调
+    const firstPinyinSlug = toSlug(pinyinParts[0]);
+    const lastPinyinSlug = toSlug(pinyinParts[pinyinParts.length - 1]);
+
+    const info = { word, slug, pinyin, firstChar, lastChar, firstPinyinSlug, lastPinyinSlug };
+    allGameIdioms.push({ item, info });
+
+    if (!charMap.has(firstChar)) charMap.set(firstChar, []);
+    charMap.get(firstChar).push(info);
+
+    if (!pinyinMap.has(firstPinyinSlug)) pinyinMap.set(firstPinyinSlug, []);
+    pinyinMap.get(firstPinyinSlug).push(info);
+  }
+  console.log(`✅ 接龙映射建立完成！参与接龙成语数: ${allGameIdioms.length}`);
+
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const generatedUrls = [];
 
   let count = 0;
-  for (const item of gameIdioms) {
-    const word = item.idiom;
+  for (const { item, info } of allGameIdioms) {
+    const word = info.word;
+    const slug = info.slug;
+    const pinyin = info.pinyin;
     const gameId = item.id;
 
     // 融合匹配数据
     const cacheData = idiomCache[word] || {};
     const dictData = dictMap.get(word) || {};
-
-    const pinyin = formatPinyinDisplay(cacheData.pinyin || dictData.pinyin || '');
-    if (!pinyin) {
-      // 降级使用拼音占位
-      continue;
-    }
-
-    const slug = toSlug(pinyin);
-    if (!slug) continue;
 
     const explanation = dictData.explanation || '';
     const meaning = cacheData.meaning || '';
@@ -117,11 +142,30 @@ async function main() {
     const example = cacheData.example || dictData.example || '';
     const difficulty = cacheData.difficulty || 'medium';
 
+    // 查找接龙成语
+    let nextIdiom = null;
+    const lastChar = info.lastChar;
+    const lastPinyinSlug = info.lastPinyinSlug;
+
+    // 1) 同汉字接龙
+    const charMatches = charMap.get(lastChar) || [];
+    const charCandidates = charMatches.filter(x => x.word !== word);
+    if (charCandidates.length > 0) {
+      nextIdiom = charCandidates[0];
+    } else {
+      // 2) 同拼音接龙
+      const pinyinMatches = pinyinMap.get(lastPinyinSlug) || [];
+      const pinyinCandidates = pinyinMatches.filter(x => x.word !== word);
+      if (pinyinCandidates.length > 0) {
+        nextIdiom = pinyinCandidates[0];
+      }
+    }
+
     // 生成页面 HTML
-    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty);
+    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom);
     const idiomDir = path.join(OUTPUT_DIR, slug);
     fs.mkdirSync(idiomDir, { recursive: true });
-    writeFileSyncWithRetry(path.join(idiomDir, 'index.html'), html, 'utf-8');
+    writeFileSyncWithRetry(path.join(idiomDir, 'index.html'), html, 'utf-8', 10, 100);
 
     generatedUrls.push(`${BRANDING.siteUrl}/idiom/${slug}`);
     count++;
@@ -156,7 +200,7 @@ ${chunk.map((url) => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod><chan
 }
 
 // ─── HTML 页面构建模板 ─────────────────────────────────────────
-function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty) {
+function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom) {
   const chars = word.split('');
   const pinyinParts = pinyin.split(' ');
 
@@ -399,6 +443,17 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   <div class="section-card">
     <h2>Example (造句示例)</h2>
     <p>${example}</p>
+  </div>` : ''}
+
+  ${nextIdiom ? `
+  <div class="section-card connection-card" style="background:#fffcf0;border:1px solid #fce8b2">
+    <h2 style="color:#b78103">🔗 Idiom Solitaire (成语接龙)</h2>
+    <p style="margin-top:8px">Learn the next connected idiom: 
+      <strong>${word}</strong> (${pinyin}) 
+      → 
+      <a href="/idiom/${nextIdiom.slug}" style="color:var(--primary-color);font-weight:700;text-decoration:underline">${nextIdiom.word}</a> 
+      (${nextIdiom.pinyin})
+    </p>
   </div>` : ''}
 
   <footer>
