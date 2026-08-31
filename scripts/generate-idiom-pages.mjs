@@ -418,7 +418,10 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
 <body>
   <header>
     <a href="${BRANDING.siteUrl}">🀄 ${BRANDING.primaryName}</a>
-    <p style="margin:8px 0 0;color:var(--light-text);font-size:14px">Daily Chinese Idiom Guessing Game</p>
+    <div style="margin-top:8px;">
+      <a href="${BRANDING.siteUrl}/generator/" style="font-size:14px;font-weight:700;margin-left:8px;color:var(--primary-color);text-decoration:underline;">🎲 Random Generator</a>
+      <a href="${BRANDING.siteUrl}/idioms/" style="font-size:14px;font-weight:700;margin-left:12px;color:var(--primary-color);text-decoration:underline;">📚 Collections</a>
+    </div>
   </header>
 
   <div class="breadcrumb">
@@ -472,6 +475,10 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
       (${nextIdiom.pinyin})
     </p>
   </div>` : ''}
+
+  <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--light-text)">
+    Want to explore more random idioms? Try our 🎲 <a href="/generator/" style="color:var(--primary-color);font-weight:700;text-decoration:underline">Chinese Idiom Generator</a>
+  </p>
 
   <footer>
     <p>© ${new Date().getFullYear()} <a href="${BRANDING.siteUrl}">${BRANDING.primaryName}</a> · 

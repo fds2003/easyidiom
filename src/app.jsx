@@ -864,6 +864,11 @@ export function App() {
           </button>
         </div>
       </header>
+      <div className="sub-nav-links" style={{ textAlign: 'center', padding: '6px 0', borderBottom: '1px solid var(--border-color)', fontSize: '13px', display: 'flex', justifyContent: 'center', gap: '12px', background: 'var(--card-bg)' }}>
+        <a href="/generator/" style={{ color: 'var(--primary-color)', fontWeight: 'bold', textDecoration: 'underline' }}>🎲 Random Generator</a>
+        <span style={{ color: '#ccc' }}>|</span>
+        <a href="/idioms/" style={{ color: 'var(--primary-color)', fontWeight: 'bold', textDecoration: 'underline' }}>📚 Collections</a>
+      </div>
       <GameBoard
         board={board}
         boardStates={boardStates}
