@@ -1,6 +1,3 @@
-import 'core-js/es/array/find-index';
-import 'core-js/es/array/from';
-
 import { Howl, Howler } from 'howler';
 import { pinyin } from 'pinyin-pro/lib/pinyin';
 import {
@@ -10,7 +7,6 @@ import {
   useRef,
   useState,
 } from 'preact/hooks';
-import Switch from 'rc-switch';
 import { Toaster, toast, useToasterStore } from 'react-hot-toast';
 import { Trans, useTranslation } from 'react-i18next';
 

@@ -1,5 +1,3 @@
-import 'rc-switch/assets/index.css';
-
 import './index.css';
 
 import i18n from 'i18next';
