@@ -4,7 +4,6 @@ import { pathToFileURL } from 'url';
 
 import content from '@originjs/vite-plugin-content';
 import preact from '@preact/preset-vite';
-import legacy from '@vitejs/plugin-legacy';
 import { defineConfig, loadEnv } from 'vite';
 
 async function loadHomePrerender() {
@@ -93,11 +92,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       preact(),
       content(),
-      legacy({
-        targets: ['defaults', 'not IE 11', 'ios_saf >= 12'],
-        additionalLegacyPolyfills: ['unfetch/polyfill/polyfill.mjs'],
-        modernPolyfills: false,
-      }),
       googleAnalyticsPlugin(gaId),
       homeSsgPrerenderPlugin(),
     ],
