@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" class="notranslate" translate="no">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDHD1VQKGD"></script>
+    <!-- Google tag (gtag.js) - Deferred for CWV Performance -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-LDHD1VQKGD');
+
+      (function() {
+        var loaded = false;
+        function loadGtag() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LDHD1VQKGD';
+          document.head.appendChild(s);
+        }
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() { setTimeout(loadGtag, 1200); });
+        } else {
+          setTimeout(loadGtag, 1500);
+        }
+        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+          window.addEventListener(e, loadGtag, { once: true, passive: true });
+        });
+      })();
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta charset="UTF-8" />

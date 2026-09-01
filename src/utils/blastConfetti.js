@@ -1,6 +1,5 @@
-import confetti from 'canvas-confetti';
-
-export default () => {
+export default async () => {
+  const { default: confetti } = await import('canvas-confetti');
   const end = Date.now() + 2 * 1000;
   const colors = ['#008000', '#FFA500'];
 

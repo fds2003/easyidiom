@@ -1,4 +1,3 @@
-import { toJpeg } from 'html-to-image';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -41,7 +40,8 @@ export default ({ header, footer, boardStates, id }) => {
   useEffect(() => {
     let isSubscribed = true;
     setImageSrc(null);
-    toJpeg(imageRef.current, imageOpts)
+    import('html-to-image')
+      .then(({ toJpeg }) => toJpeg(imageRef.current, imageOpts))
       .then((dataURL) => {
         if (isSubscribed) setImageSrc(dataURL);
       })
