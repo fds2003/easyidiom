@@ -13,6 +13,10 @@ import en from '../i18n/en.json';
 import zhCN from '../i18n/zh-CN.json';
 
 import { App } from './app';
+import { inject } from '@vercel/analytics';
+
+// 注入 Vercel Web Analytics 统计
+inject();
 
 // SEO: Redirect ?lng=* to / to prevent duplicate content indexing
 const urlParams = new URLSearchParams(location.search);
