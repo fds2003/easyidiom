@@ -1,5 +1,3 @@
-import '@fontsource/nunito/400.css';
-import '@fontsource/nunito/700.css';
 import 'rc-switch/assets/index.css';
 
 import './index.css';
