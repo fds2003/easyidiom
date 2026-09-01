@@ -112,7 +112,7 @@ export default defineConfig(({ mode }) => {
     build: {
       assetsInlineLimit: 0,
       target: ['es2020', 'chrome61', 'safari11'],
-      sourcemap: true,
+      sourcemap: false,
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
         output: {
