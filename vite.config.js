@@ -94,9 +94,9 @@ export default defineConfig(({ mode }) => {
       preact(),
       content(),
       legacy({
-        targets: ['defaults', 'samsung >= 9', 'android >= 4', 'chrome >= 30'],
+        targets: ['defaults', 'not IE 11', 'ios_saf >= 12'],
         additionalLegacyPolyfills: ['unfetch/polyfill/polyfill.mjs'],
-        modernPolyfills: true,
+        modernPolyfills: false,
       }),
       googleAnalyticsPlugin(gaId),
       homeSsgPrerenderPlugin(),
@@ -111,7 +111,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       assetsInlineLimit: 0,
-      target: ['es2020', 'chrome61', 'safari11'],
+      target: 'es2020',
       sourcemap: false,
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
