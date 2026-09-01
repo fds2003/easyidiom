@@ -117,6 +117,13 @@ export default defineConfig(({ mode }) => {
             if (normalizedId.includes('game-idioms')) return 'game-idioms';
             if (normalizedId.includes('node_modules/pinyin-pro/data'))
               return 'pinyin-data';
+            if (normalizedId.includes('node_modules/howler'))
+              return 'vendor-audio';
+            if (
+              normalizedId.includes('node_modules/i18next') ||
+              normalizedId.includes('node_modules/react-i18next')
+            )
+              return 'vendor-i18n';
             if (normalizedId.includes('node_modules')) return 'vendor';
           },
         },

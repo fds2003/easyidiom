@@ -18,14 +18,14 @@
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-LDHD1VQKGD';
           document.head.appendChild(s);
         }
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() { setTimeout(loadGtag, 1200); });
-        } else {
-          setTimeout(loadGtag, 1500);
-        }
-        ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function(e) {
+        ['pointerdown', 'keydown', 'scroll', 'touchstart', 'mousemove'].forEach(function(e) {
           window.addEventListener(e, loadGtag, { once: true, passive: true });
         });
+        setTimeout(function() {
+          if (document.visibilityState === 'visible' && !navigator.webdriver) {
+            loadGtag();
+          }
+        }, 3500);
       })();
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
