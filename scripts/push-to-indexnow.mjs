@@ -11,7 +11,7 @@ import path from 'path';
 const HOST = 'easyidiom.com';
 const KEY = '891dc89a95bf4852b7e05b2055b7d76a';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const INDEXNOW_API = 'https://api.indexnow.org/indexnow';
+const INDEXNOW_API = 'https://www.bing.com/indexnow';
 const BASE_URL = `https://${HOST}`;
 
 async function collectAllUrls() {
