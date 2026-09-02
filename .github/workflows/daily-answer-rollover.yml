@@ -46,6 +46,7 @@ jobs:
           node category_generator.js
           node scripts/generate-topic-lists.mjs
           node scripts/generate-dramas.mjs
+          node scripts/push-to-baidu.mjs
 
       - name: Commit and push changes
         run: |
