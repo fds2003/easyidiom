@@ -836,11 +836,13 @@ export function App() {
         <div class="inner">
           <button
             type="button"
-            onClick={() => {
+            aria-label="Info & Rules"
+            onClick={(e) => {
+              e.stopPropagation();
               setShowInfoModal(true);
             }}
           >
-            <InfoIcon width="16" height="16" />
+            <InfoIcon width="18" height="18" />
           </button>
           <span>
             <h1>{t('app.title')}</h1>
@@ -848,14 +850,16 @@ export function App() {
           </span>
           <button
             type="button"
-            onClick={() => {
+            aria-label="Game Menu & Result"
+            onClick={(e) => {
+              e.stopPropagation();
               setShowModal(gameState || 'play');
             }}
           >
             {gameState ? (
               t('common.play')
             ) : (
-              <KebabIcon width="16" height="16" />
+              <KebabIcon width="18" height="18" />
             )}
           </button>
         </div>
@@ -1503,6 +1507,7 @@ export function App() {
       <Toaster
         containerStyle={{
           top: '3.5em',
+          pointerEvents: 'none',
         }}
         toastOptions={{
           className: 'toast',
