@@ -104,6 +104,9 @@ ${li}
     })();
     </script>
     <p class="home-prerender-meta"><a href="https://wordlechinese.com/learn-chinese-with-idioms">How to learn Chinese with Daily Idiom Puzzle</a> · <a href="https://wordlechinese.com/study/chinese-idiom-hsk-guide">HSK study &amp; chengyu hub</a> · <a href="https://wordlechinese.com/idioms/">成语分类 Browse Idioms</a></p>
+    <div class="productwatch-badge-wrap" style="margin: 16px 0;">
+      <a href="https://productwatch.io" target="_blank" rel="noopener noreferrer"><img src="https://productwatch.io/backend/api/v1/badge/featured?productId=533b977f-83d8-4e89-a5fb-6235cbe85652&darkMode=false" alt="easyidiom" style="max-width: 250px;" /></a>
+    </div>
   </section>`;
 }
 
