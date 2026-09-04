@@ -329,6 +329,9 @@ async function main() {
   </div>
 
   <footer>
+    <div style="margin: 1.25em 0 0.5em 0;">
+      <a href="https://productwatch.io" target="_blank" rel="noopener noreferrer"><img src="https://productwatch.io/backend/api/v1/badge/featured?productId=533b977f-83d8-4e89-a5fb-6235cbe85652&darkMode=false" alt="easyidiom" style="max-width: 250px; width: 100%; height: auto; border-radius: 8px;" /></a>
+    </div>
     <p>© ${new Date().getFullYear()} <a href="${BRANDING.siteUrl}">${BRANDING.primaryName}</a> · 
     <a href="/privacy">Privacy Policy</a></p>
   </footer>
@@ -620,6 +623,9 @@ async function main() {
   </div>
 
   <footer>
+    <div style="margin: 1.25em 0 0.5em 0;">
+      <a href="https://productwatch.io" target="_blank" rel="noopener noreferrer"><img src="https://productwatch.io/backend/api/v1/badge/featured?productId=533b977f-83d8-4e89-a5fb-6235cbe85652&darkMode=false" alt="easyidiom" style="max-width: 250px; width: 100%; height: auto; border-radius: 8px;" /></a>
+    </div>
     <p>© ${new Date().getFullYear()} <a href="${BRANDING.siteUrl}">${BRANDING.primaryName}</a> · 
     <a href="/privacy">Privacy Policy</a></p>
   </footer>

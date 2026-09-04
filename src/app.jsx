@@ -1354,6 +1354,20 @@ export function App() {
                   />
                 </li>
               </ul>
+              <div class="product-badge-container">
+                <a
+                  href="https://productwatch.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Featured on ProductWatch"
+                >
+                  <img
+                    src="https://productwatch.io/backend/api/v1/badge/featured?productId=533b977f-83d8-4e89-a5fb-6235cbe85652&darkMode=false"
+                    alt="easyidiom"
+                    style="max-width: 250px;"
+                  />
+                </a>
+              </div>
               <details id="debugging-container">
                 <summary>
                   {t('debugging.heading')} ({__COMMIT_HASH__})

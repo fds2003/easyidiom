@@ -1076,3 +1076,31 @@ a.button.strong {
 .archive-banner .back-home-btn:hover {
   opacity: 0.9;
 }
+
+.product-badge-container {
+  margin: 1.25em auto 0.75em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-badge-container a {
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  line-height: 0;
+  border-radius: 8px;
+}
+
+.product-badge-container a:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.product-badge-container img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
