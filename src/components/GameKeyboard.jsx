@@ -69,7 +69,19 @@ const GameKeyboard = ({
         {hardMode ? (
           <b class="hard">{t('ui.hardMode')}</b>
         ) : (
-          <button type="button" class="stuck" onClick={onHint}>
+          <button
+            type="button"
+            class="stuck"
+            aria-label="Hint"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              onHint?.();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onHint?.();
+            }}
+          >
             {t('ui.hint')}
           </button>
         )}

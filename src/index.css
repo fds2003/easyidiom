@@ -561,17 +561,28 @@ header h1 {
   min-width: 5em;
 }
 #keyboard .row button.stuck {
-  background-color: transparent;
-  opacity: 0.6;
-  font-size: 0.8em;
-  margin-top: 1em;
-  padding: 0;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-color);
+  opacity: 0.9;
+  font-size: 0.85em;
+  margin-top: 0.8em;
+  padding: 0.4em 0.8em;
+  border-radius: 0.4em;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px dashed var(--primary-color);
+  transition: all 0.2s ease;
+  min-width: auto;
+  user-select: none;
+  touch-action: manipulation;
 }
 #keyboard .row button.stuck:hover {
   opacity: 1;
+  background-color: var(--primary-active-bg-color);
 }
 #keyboard .row button.stuck:active {
-  color: inherit;
+  transform: scale(0.95);
+  background-color: var(--primary-active-bg-color);
 }
 #keyboard .row .hard {
   font-size: 0.8em;

@@ -745,17 +745,28 @@ export function App() {
   }, [currentGame.idiom]);
   const showHint = () => {
     if (gameState) return;
-    const hint = hints[hintIndex.current];
+    if (!hints || hints.length === 0) {
+      const def = definition?.zh || definition?.en;
+      if (def) {
+        alert(`💡 ${def}`);
+      } else {
+        alert(`💡 第 1 个字的读音是 "${py(currentGame.idiom[0])}"`);
+      }
+      return;
+    }
+    const hint = hints[hintIndex.current % hints.length];
     hintIndex.current = (hintIndex.current + 1) % hints.length;
-    alert(hint);
+    if (hint) {
+      alert(hint);
 
-    let hintType = 'other';
-    if (hint.indexOf('ℹ️') !== -1) hintType = 'definition';
-    else if (hint.indexOf('Absent') !== -1 || hint.indexOf('absent') !== -1) hintType = 'absent_letter';
-    else if (hint.indexOf('Present') !== -1 || hint.indexOf('present') !== -1) hintType = 'present_letter';
-    else if (hint.indexOf('Pinyin') !== -1 || hint.indexOf('pinyin') !== -1 || hint.indexOf('initials') !== -1) hintType = 'pinyin';
+      let hintType = 'other';
+      if (hint.indexOf('ℹ️') !== -1) hintType = 'definition';
+      else if (hint.indexOf('Absent') !== -1 || hint.indexOf('absent') !== -1) hintType = 'absent_letter';
+      else if (hint.indexOf('Present') !== -1 || hint.indexOf('present') !== -1) hintType = 'present_letter';
+      else if (hint.indexOf('Pinyin') !== -1 || hint.indexOf('pinyin') !== -1 || hint.indexOf('initials') !== -1) hintType = 'pinyin';
 
-    fireEvent('view_hint', { props: { hint_type: hintType } });
+      fireEvent('view_hint', { props: { hint_type: hintType } });
+    }
   };
 
   // Limit number of toasts
