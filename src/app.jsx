@@ -30,6 +30,7 @@ import ShareIcon from './components/ShareIcon';
 import ShareImageButton from './components/ShareImageButton';
 import Tile from './components/Tile';
 import TwitterIcon from './components/TwitterIcon';
+import Switch from './components/Switch';
 import VolumeSlider from './components/VolumeSlider';
 import { KEY_PREFIX } from './constants';
 import LS from './utils/LS';
