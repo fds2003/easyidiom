@@ -50,5 +50,9 @@
     "last 2 versions",
     "Firefox ESR",
     "not dead"
-  ]
+  ],
+  "allowScripts": {
+    "esbuild@0.14.21": true,
+    "core-js@3.21.1": true
+  }
 }
