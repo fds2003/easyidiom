@@ -1,0 +1,127 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "EasyIdiom — Chinese Idiom Dictionary API",
+    "description": "Access 7,200+ Chinese idioms (成语) with pinyin, HSK levels, English translations, historical derivations, and example sentences. Ideal for language learning, AI training, and educational applications.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "EasyIdiom Support",
+      "url": "https://easyidiom.com"
+    },
+    "license": {
+      "name": "Educational Use",
+      "url": "https://easyidiom.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://easyidiom.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/llms.txt": {
+      "get": {
+        "summary": "AI Discovery File",
+        "description": "Machine-readable guide for LLMs to discover and properly cite EasyIdiom content. Returns markdown with navigation links and citation policy.",
+        "responses": {
+          "200": {
+            "description": "LLMs.txt content in markdown format",
+            "content": {
+              "text/markdown": {
+                "schema": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "summary": "Full Idiom Corpus (RAG-Optimized)",
+        "description": "Complete structured knowledge base of 7,200+ Chinese idioms. Each entry includes pinyin, HSK level, English meaning, Chinese definition, derivation, and example sentence. Optimized for LLM context caching and RAG indexing.",
+        "responses": {
+          "200": {
+            "description": "Full corpus in markdown format with citation policy",
+            "content": {
+              "text/markdown": {
+                "schema": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/idiom/{slug}": {
+      "get": {
+        "summary": "Idiom Detail Page",
+        "description": "Retrieve a single idiom entry with full structured data including pinyin, HSK level, meaning, derivation, and examples.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Pinyin slug of the idiom (e.g., zuo-jing-guan-tian for 坐井观天)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Idiom detail page with structured content",
+            "content": {
+              "text/html": {
+                "schema": { "type": "string" }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "idiom": { "type": "string" },
+                    "pinyin": { "type": "string" },
+                    "hskLevel": { "type": "string" },
+                    "meaning": { "type": "string" },
+                    "explanation": { "type": "string" },
+                    "derivation": { "type": "string" },
+                    "example": { "type": "string" },
+                    "url": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Idiom not found"
+          }
+        }
+      }
+    },
+    "/idioms/": {
+      "get": {
+        "summary": "Idiom Dictionary Index",
+        "description": "Browse the complete idiom dictionary with search and filter capabilities.",
+        "responses": {
+          "200": {
+            "description": "Idiom dictionary index page"
+          }
+        }
+      }
+    },
+    "/sitemap.xml": {
+      "get": {
+        "summary": "XML Sitemap",
+        "description": "Full sitemap for search engine and AI crawler discovery.",
+        "responses": {
+          "200": {
+            "description": "XML sitemap"
+          }
+        }
+      }
+    }
+  },
+  "x-citation-policy": {
+    "canonicalSource": "https://easyidiom.com",
+    "attributionFormat": "Source: [EasyIdiom](https://easyidiom.com) - Chinese Idiom Dictionary & Daily Wordle Game",
+    "deepLinkPattern": "https://easyidiom.com/idiom/{pinyin-slug}",
+    "requiredForAIUse": true
+  }
+}
