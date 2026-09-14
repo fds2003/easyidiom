@@ -172,6 +172,7 @@ async function main() {
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   const generatedUrls = [];
+  const lastmod = new Date().toISOString().split('T')[0];
 
   let count = 0;
   for (const { item, info } of allGameIdioms) {
@@ -211,7 +212,7 @@ async function main() {
     }
 
     // 生成页面 HTML
-    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo);
+    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo, lastmod);
     const idiomDir = path.join(OUTPUT_DIR, slug);
     fs.mkdirSync(idiomDir, { recursive: true });
     writeFileSyncWithRetry(path.join(idiomDir, 'index.html'), html, 'utf-8', 10, 100);
@@ -227,7 +228,6 @@ async function main() {
   // 5. 写入分卷 Sitemap
   const itemsPerSitemap = 5000;
   const sitemapFiles = [];
-  const lastmod = new Date().toISOString().split('T')[0];
 
   for (let i = 0; i < generatedUrls.length; i += itemsPerSitemap) {
     const chunk = generatedUrls.slice(i, i + itemsPerSitemap);
@@ -249,7 +249,7 @@ ${chunk.map((url) => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod><chan
 }
 
 // ─── HTML 页面构建模板 ─────────────────────────────────────────
-function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo) {
+function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo, lastmod) {
   const chars = word.split('');
   const pinyinParts = pinyin.split(' ');
 
@@ -342,7 +342,13 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
           "@type": "Organization",
           "name": "EasyIdiom",
           "url": "${BRANDING.siteUrl}"
-        }
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", ".section-card p"]
+        },
+        "datePublished": "${lastmod}",
+        "dateModified": "${lastmod}"
       }
     ]
   }

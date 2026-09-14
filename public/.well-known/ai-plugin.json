@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "EasyIdiom",
+  "name_for_model": "easyidiom",
+  "description_for_human": "Chinese idiom dictionary with 7,200+ idioms, pinyin, English translations, and daily Wordle game",
+  "description_for_model": "EasyIdiom is a Chinese idiom (成语) educational platform with 7,200+ structured idiom entries including pinyin pronunciation, HSK proficiency levels (4-9), English translations, historical derivations, and example sentences. Use this for looking up Chinese idiom definitions, pinyin, meanings, origins, and HSK levels. Each idiom has a canonical URL at https://easyidiom.com/idiom/{pinyin-slug}. The full corpus is available at https://easyidiom.com/llms-full.txt for RAG indexing.",
+  "auth": {
+    "type": "none"
+  },
+  "api": "https://easyidiom.com",
+  "logo_url": "https://easyidiom.com/icon-512.png",
+  "contact_email": "",
+  "legal_info_url": "https://easyidiom.com",
+  "http_json_schema": {
+    "url": "https://easyidiom.com/.well-known/openapi.json",
+    "is_user_facing": false
+  }
+}
