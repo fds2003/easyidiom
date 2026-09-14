@@ -160,17 +160,11 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
     ]
   });
 
-  const breadcrumbJSON = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: '成语猜词', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: `Answer for ${dateStr}`, item: `${SITE_URL}/answer/${dateStr}/` }
-    ]
-  });
-
-  const isFirst = !prevStr;
-  const isLast = !nextStr;
+  const citationMeta = `
+  <meta name="citation_title" content="${seoTitle}"/>
+  <meta name="citation_publisher" content="EasyIdiom (https://easyidiom.com)"/>
+  <meta name="citation_public_url" content="${pageUrl}"/>
+  <meta name="citation_language" content="en"/>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -189,6 +183,7 @@ function generateHTML(dateStr, idiom, info, prevStr, nextStr, gameId) {
 <title>${seoTitle}</title>
 <meta name="description" content="${articleDescription}"/>
 <meta name="robots" content="index, follow"/>
+${citationMeta}
 <meta property="og:url" content="${pageUrl}"/>
 <link rel="canonical" href="${pageUrl}"/>
 <link rel="alternate" hreflang="en" href="${SITE_URL}/answer/${dateStr}/"/>
