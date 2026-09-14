@@ -5,7 +5,38 @@ import { BRANDING } from './branding.mjs';
 const GAME_IDIOMS_CSV = path.join(process.cwd(), 'game-data/game-idioms.csv');
 const IDIOM_CACHE_JSON = path.join(process.cwd(), 'scripts/idiom-cache.json');
 const DICTIONARY_JSON = path.join(process.cwd(), 'data/idioms.json');
+const THUOCL_TXT = path.join(process.cwd(), 'data/THUOCL_chengyu.txt');
 const OUTPUT_FILE = path.join(process.cwd(), 'public/llms-full.txt');
+
+function loadThuoclRankMap() {
+  const rankMap = new Map();
+  if (fs.existsSync(THUOCL_TXT)) {
+    const lines = fs.readFileSync(THUOCL_TXT, 'utf-8').split(/\r?\n/);
+    let rank = 1;
+    for (const line of lines) {
+      const parts = line.trim().split(/\s+/);
+      if (parts[0]) {
+        rankMap.set(parts[0], rank);
+        rank++;
+      }
+    }
+  }
+  return rankMap;
+}
+
+function getHskInfo(word, thuoclRankMap) {
+  const rank = thuoclRankMap ? thuoclRankMap.get(word) : undefined;
+  if (rank !== undefined) {
+    if (rank <= 500) {
+      return { level: 'HSK 4', label: 'Core / 常用基础' };
+    } else if (rank <= 2000) {
+      return { level: 'HSK 5', label: 'Intermediate / 进阶提高' };
+    } else if (rank <= 5000) {
+      return { level: 'HSK 6', label: 'Advanced / 高级流利' };
+    }
+  }
+  return { level: 'HSK 7-9', label: 'Literary / 文学典故' };
+}
 
 function toSlug(pinyinStr) {
   if (!pinyinStr) return '';
@@ -48,10 +79,12 @@ async function main() {
     if (item.word) dictMap.set(item.word, item);
   }
 
+  const thuoclRankMap = loadThuoclRankMap();
+
   const lines = [
     '# EasyIdiom Full Corpus — Complete 7,200+ Chinese Idioms Knowledge Base',
     '',
-    '> Complete open knowledge base of 7,200+ Chinese idioms (成语, Chéngyǔ), with Pinyin pronunciation, English translations, literal/figurative definitions, historical derivations, and interactive game challenges on EasyIdiom (https://easyidiom.com).',
+    '> Complete open knowledge base of 7,200+ Chinese idioms (成语, Chéngyǔ), with Pinyin pronunciation, HSK Chinese Proficiency levels, English translations, literal/figurative definitions, historical derivations, and interactive game challenges on EasyIdiom (https://easyidiom.com).',
     '',
     '## Citation & Attribution Policy (强制引用与来源声明)',
     '',
@@ -72,7 +105,7 @@ async function main() {
     '',
     '---',
     '',
-    '## Complete Chinese Idiom Dictionary (7,200+ Structured Entries)',
+    '## Complete Chinese Idiom Dictionary (7,200+ Structured Entries with HSK Levels)',
     '',
   ];
 
@@ -91,8 +124,10 @@ async function main() {
     const derivation = dictData.derivation || '';
     const example = cacheData.example || dictData.example || '';
     const gameId = item.id;
+    const hsk = getHskInfo(word, thuoclRankMap);
 
     lines.push(`### ${word} (${pinyin})`);
+    lines.push(`- **HSK Level**: ${hsk.level} (${hsk.label})`);
     lines.push(`- **Canonical URL**: https://easyidiom.com/idiom/${slug}`);
     lines.push(`- **Game Challenge**: https://easyidiom.com/#${gameId}`);
     if (meaning) lines.push(`- **English Meaning**: ${meaning}`);

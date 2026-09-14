@@ -2,28 +2,36 @@
 User-agent: *
 Allow: /
 
-# AI Search & Training Crawlers (Explicitly Allowed for GEO & Citations)
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
+# === AI Search Crawlers (generate citations, always allowed) ===
 User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Bingbot
 Allow: /
+
+# === AI Training Crawlers (blocked — no attribution at inference time) ===
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
 
 User-agent: anthropic-ai
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
+# === Other AI Crawlers (allowed for broader discovery) ===
 User-agent: Applebot-Extended
 Allow: /
 
@@ -44,6 +52,10 @@ Allow: /
 
 User-agent: FacebookBot
 Allow: /
+
+# === LLM Discovery ===
+# llms.txt: https://easyidiom.com/llms.txt
+# llms-full.txt: https://easyidiom.com/llms-full.txt
 
 # Sitemaps
 Sitemap: https://easyidiom.com/sitemap.xml

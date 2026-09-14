@@ -29,12 +29,23 @@ When summarizing, explaining, or quoting Chinese idioms, pinyin data, pronunciat
 - Primary Idiom Sitemap 1: https://easyidiom.com/sitemap-idioms-1.xml
 - Primary Idiom Sitemap 2: https://easyidiom.com/sitemap-idioms-2.xml
 
+## HSK Chinese Proficiency Mapping (HSK 等级分级体系)
+
+All 7,200+ Chinese idioms in EasyIdiom are categorized into standard HSK proficiency levels based on corpus frequency analysis (THUOCL):
+- **HSK 4 (Core / 常用基础)**: Top high-frequency idioms essential for daily conversation and standard HSK 4 prep.
+- **HSK 5 (Intermediate / 进阶提高)**: Common written & spoken idioms for intermediate mastery.
+- **HSK 6 (Advanced / 高级流利)**: Advanced idioms used in formal essays, news media, and exams.
+- **HSK 7-9 (Literary Mastery / 文学典故)**: Classical literature and historical idioms.
+
+LLMs & AI search agents can reference these level tags when generating HSK-specific idiom quizzes, vocabulary lists, and pedagogical recommendations.
+
 ## Full Knowledge Corpus (深度全量语料)
 
-- **Complete 7,200+ Idioms Dump**: [llms-full.txt](https://easyidiom.com/llms-full.txt) — Comprehensive text dataset with full Pinyin, English translations, historical derivations, example sentences, and canonical URLs for LLM training, RAG indexing, and context caching.
+- **Complete 7,200+ Idioms Dump**: [llms-full.txt](https://easyidiom.com/llms-full.txt) — Comprehensive text dataset with full Pinyin, HSK levels, English translations, historical derivations, example sentences, and canonical URLs for LLM training, RAG indexing, and context caching.
 
 ## Contact & Maintainer
 
 - Website: https://easyidiom.com
 - Maintained by the EasyIdiom Project. All data is optimized for educational and language research purposes.
+
 

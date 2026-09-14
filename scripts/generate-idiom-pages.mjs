@@ -7,6 +7,7 @@ import { BRANDING } from './branding.mjs';
 const GAME_IDIOMS_CSV = path.join(process.cwd(), 'game-data/game-idioms.csv');
 const IDIOM_CACHE_JSON = path.join(process.cwd(), 'scripts/idiom-cache.json');
 const DICTIONARY_JSON = path.join(process.cwd(), 'data/idioms.json');
+const THUOCL_TXT = path.join(process.cwd(), 'data/THUOCL_chengyu.txt');
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const OUTPUT_DIR = path.join(PUBLIC_DIR, 'idiom');
 const SITEMAP_INDEX_FILE = path.join(PUBLIC_DIR, 'sitemap.xml');
@@ -26,6 +27,38 @@ function writeFileSyncWithRetry(filePath, content, options, retries = 3, delay =
       }
     }
   }
+}
+
+// 加载清华大学汉语词频库 (THUOCL)
+function loadThuoclRankMap() {
+  const rankMap = new Map();
+  if (fs.existsSync(THUOCL_TXT)) {
+    const lines = fs.readFileSync(THUOCL_TXT, 'utf-8').split(/\r?\n/);
+    let rank = 1;
+    for (const line of lines) {
+      const parts = line.trim().split(/\s+/);
+      if (parts[0]) {
+        rankMap.set(parts[0], rank);
+        rank++;
+      }
+    }
+  }
+  return rankMap;
+}
+
+// 根据词频计算科学的 HSK 等级与难度属性
+function getHskInfo(word, thuoclRankMap) {
+  const rank = thuoclRankMap ? thuoclRankMap.get(word) : undefined;
+  if (rank !== undefined) {
+    if (rank <= 500) {
+      return { level: 'HSK 4', label: 'Core / 常用基础', tag: 'hsk4', badgeColor: '#0284c7' };
+    } else if (rank <= 2000) {
+      return { level: 'HSK 5', label: 'Intermediate / 进阶提高', tag: 'hsk5', badgeColor: '#0ea5e9' };
+    } else if (rank <= 5000) {
+      return { level: 'HSK 6', label: 'Advanced / 高级流利', tag: 'hsk6', badgeColor: '#6366f1' };
+    }
+  }
+  return { level: 'HSK 7-9', label: 'Literary / 文学典故', tag: 'hsk7-9', badgeColor: '#64748b' };
 }
 
 // 拼音去声调并 Slug 化
@@ -100,7 +133,11 @@ async function main() {
   }
   console.log('✅ 大字典索引建立完成！');
 
-  // 4. 数据融合并建立接龙映射
+  // 4. 加载清华 THUOCL 词频库计算 HSK 属性
+  const thuoclRankMap = loadThuoclRankMap();
+  console.log(`📊 加载了 ${thuoclRankMap.size} 条 THUOCL 词频数据进行 HSK 分级`);
+
+  // 5. 数据融合并建立接龙映射
   const charMap = new Map();
   const pinyinMap = new Map();
   const allGameIdioms = [];
@@ -152,6 +189,7 @@ async function main() {
     const derivation = dictData.derivation || '';
     const example = cacheData.example || dictData.example || '';
     const difficulty = cacheData.difficulty || 'medium';
+    const hskInfo = getHskInfo(word, thuoclRankMap);
 
     // 查找接龙成语
     let nextIdiom = null;
@@ -173,7 +211,7 @@ async function main() {
     }
 
     // 生成页面 HTML
-    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom);
+    const html = buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo);
     const idiomDir = path.join(OUTPUT_DIR, slug);
     fs.mkdirSync(idiomDir, { recursive: true });
     writeFileSyncWithRetry(path.join(idiomDir, 'index.html'), html, 'utf-8', 10, 100);
@@ -211,7 +249,7 @@ ${chunk.map((url) => `  <url><loc>${url}</loc><lastmod>${lastmod}</lastmod><chan
 }
 
 // ─── HTML 页面构建模板 ─────────────────────────────────────────
-function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom) {
+function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, derivation, example, difficulty, nextIdiom, hskInfo) {
   const chars = word.split('');
   const pinyinParts = pinyin.split(' ');
 
@@ -240,18 +278,18 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   <script defer src="/_vercel/insights/script.js"></script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | EasyIdiom</title>
-  <meta name="description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at EasyIdiom."/>
+  <title>Idiom ${word} (${pinyin}) [${hskInfo.level}] Meaning &amp; Examples | EasyIdiom</title>
+  <meta name="description" content="Study the Chinese idiom ${word} (${pinyin}) [${hskInfo.level} · ${hskInfo.label}]: English meaning, pinyin pronunciation, origins, and sentence examples. Play daily at EasyIdiom."/>
   <link rel="canonical" href="${BRANDING.siteUrl}/idiom/${slug}"/>
   <meta property="og:site_name" content="EasyIdiom"/>
-  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | EasyIdiom"/>
-  <meta property="og:description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta property="og:title" content="Idiom ${word} (${pinyin}) [${hskInfo.level}] Meaning &amp; Pinyin | EasyIdiom"/>
+  <meta property="og:description" content="Study the Chinese idiom ${word} (${pinyin}) [${hskInfo.level} · ${hskInfo.label}]: English meaning, pinyin pronunciation, origins, and sentence examples."/>
   <meta property="og:url" content="${BRANDING.siteUrl}/idiom/${slug}"/>
   <meta property="og:image" content="${BRANDING.siteUrl}/icon-512.png"/>
   <meta property="og:type" content="article"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | EasyIdiom"/>
-  <meta name="twitter:description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) [${hskInfo.level}] Meaning &amp; Pinyin | EasyIdiom"/>
+  <meta name="twitter:description" content="Study the Chinese idiom ${word} (${pinyin}) [${hskInfo.level} · ${hskInfo.label}]: English meaning, pinyin pronunciation, origins, and sentence examples."/>
   <meta name="citation_title" content="Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Definition"/>
   <meta name="citation_publisher" content="EasyIdiom (https://easyidiom.com)"/>
   <meta name="citation_public_url" content="${BRANDING.siteUrl}/idiom/${slug}"/>
@@ -280,10 +318,17 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
           "name": "EasyIdiom",
           "url": "${BRANDING.siteUrl}"
         },
-        "headline": "Idiom ${escapeJson(word)} (${escapeJson(pinyin)}) Meaning, Pinyin &amp; Examples",
-        "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${escapeJson(word)}.",
+        "headline": "Idiom ${escapeJson(word)} (${escapeJson(pinyin)}) [${hskInfo.level}] Meaning, Pinyin &amp; Examples",
+        "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${escapeJson(word)} (${hskInfo.level}).",
         "mainEntityOfPage": "${BRANDING.siteUrl}/idiom/${slug}",
         "url": "${BRANDING.siteUrl}/idiom/${slug}",
+        "educationalLevel": "${hskInfo.level}",
+        "educationalUse": "Chinese Language Learning &amp; HSK Preparation",
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "student",
+          "audienceType": "Chinese Learners (${hskInfo.level})"
+        },
         "publisher": {
           "@type": "Organization",
           "name": "EasyIdiom",
@@ -481,8 +526,9 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   </div>
 
   <h1>${word} (${pinyin})<button class="pronounce-btn" onclick="speak('${word}')" title="Listen to pronunciation">🔊</button></h1>
-  <div class="difficulty-container">
-    <span class="badge">${difficulty}</span>
+  <div class="difficulty-container" style="display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:18px;">
+    <span class="badge" style="background:${hskInfo.badgeColor};font-weight:700;">🎓 ${hskInfo.level}</span>
+    <span class="badge" style="background:#475569;font-weight:600;">${hskInfo.label}</span>
   </div>
 
   <div class="grid-word">
