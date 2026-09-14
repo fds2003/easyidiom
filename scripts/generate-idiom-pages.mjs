@@ -46,6 +46,17 @@ function formatPinyinDisplay(pinyinStr) {
   return pinyinStr.trim();
 }
 
+// JSON 转义辅助函数，确保 Schema.org JSON-LD 安全合法
+function escapeJson(str) {
+  if (!str) return '';
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, ' ')
+    .replace(/\r/g, '')
+    .trim();
+}
+
 // ─── 主流程 ────────────────────────────────────────────────────
 async function main() {
   console.log('🚀 开始生成成语详情页...');
@@ -229,28 +240,66 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
   <script defer src="/_vercel/insights/script.js"></script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | ${BRANDING.primaryName}</title>
-  <meta name="description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at ${BRANDING.primaryName}."/>
+  <title>Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Examples | EasyIdiom</title>
+  <meta name="description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples. Play daily at EasyIdiom."/>
   <link rel="canonical" href="${BRANDING.siteUrl}/idiom/${slug}"/>
-  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | ${BRANDING.primaryName}"/>
-  <meta property="og:description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta property="og:site_name" content="EasyIdiom"/>
+  <meta property="og:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | EasyIdiom"/>
+  <meta property="og:description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
   <meta property="og:url" content="${BRANDING.siteUrl}/idiom/${slug}"/>
-  <meta property="og:image" content="https://i.imgur.com/HaFiQgi.jpg"/>
+  <meta property="og:image" content="${BRANDING.siteUrl}/icon-512.png"/>
   <meta property="og:type" content="article"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | ${BRANDING.primaryName}"/>
-  <meta name="twitter:description" content="Study the ${BRANDING.primaryName} idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta name="twitter:title" content="Idiom ${word} (${pinyin}) Meaning &amp; Pinyin | EasyIdiom"/>
+  <meta name="twitter:description" content="Study the Chinese idiom ${word} (${pinyin}): English meaning, pinyin spelling, derivation origin, and sentence examples."/>
+  <meta name="citation_title" content="Idiom ${word} (${pinyin}) Meaning, Pinyin &amp; Definition"/>
+  <meta name="citation_publisher" content="EasyIdiom (https://easyidiom.com)"/>
+  <meta name="citation_public_url" content="${BRANDING.siteUrl}/idiom/${slug}"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "${BRANDING.primaryName} Idiom ${word} (${pinyin}) Meaning &amp; Examples",
-    "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${word}.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "${BRANDING.zhName}",
-      "url": "${BRANDING.siteUrl}"
-    }
+    "@graph": [
+      {
+        "@type": "DefinedTerm",
+        "@id": "${BRANDING.siteUrl}/idiom/${slug}#term",
+        "name": "${escapeJson(word)}",
+        "termCode": "${escapeJson(slug)}",
+        "description": "${escapeJson(meaning || explanation || '')}",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "EasyIdiom Chinese Idioms Dictionary",
+          "url": "${BRANDING.siteUrl}"
+        },
+        "url": "${BRANDING.siteUrl}/idiom/${slug}"
+      },
+      {
+        "@type": "Article",
+        "@id": "${BRANDING.siteUrl}/idiom/${slug}#article",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "EasyIdiom",
+          "url": "${BRANDING.siteUrl}"
+        },
+        "headline": "Idiom ${escapeJson(word)} (${escapeJson(pinyin)}) Meaning, Pinyin &amp; Examples",
+        "description": "Chinese definitions, English translation, pinyin, derivation and sentence examples of idiom ${escapeJson(word)}.",
+        "mainEntityOfPage": "${BRANDING.siteUrl}/idiom/${slug}",
+        "url": "${BRANDING.siteUrl}/idiom/${slug}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "EasyIdiom",
+          "url": "${BRANDING.siteUrl}",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "${BRANDING.siteUrl}/icon-512.png"
+          }
+        },
+        "copyrightHolder": {
+          "@type": "Organization",
+          "name": "EasyIdiom",
+          "url": "${BRANDING.siteUrl}"
+        }
+      }
+    ]
   }
   </script>
   <style>
@@ -465,6 +514,14 @@ function buildIdiomHtml(word, pinyin, slug, gameId, explanation, meaning, deriva
     <h2>Example (造句示例)</h2>
     <p>${example}</p>
   </div>` : ''}
+
+  <div class="section-card citation-card" style="background:#f8fafc;border-left:4px solid var(--primary-color);">
+    <h2 style="font-size:14px;color:var(--primary-color);margin-bottom:6px;">📖 Source &amp; Citation (内容出处)</h2>
+    <p style="font-size:14px;color:var(--text-color);line-height:1.5;">
+      This entry <strong>${word} (${pinyin})</strong> is curated by <a href="${BRANDING.siteUrl}" style="color:var(--primary-color);font-weight:700;text-decoration:underline">EasyIdiom (easyidiom.com)</a>. 
+      Play the daily <a href="${BRANDING.siteUrl}/#${gameId}" style="color:var(--primary-color);font-weight:700;text-decoration:underline">Chinese Wordle Puzzle</a> or explore our <a href="${BRANDING.siteUrl}/idioms/" style="color:var(--primary-color);font-weight:700;text-decoration:underline">7,200+ Idiom Dictionary</a>.
+    </p>
+  </div>
 
   ${nextIdiom ? `
   <div class="section-card connection-card" style="background:#fffcf0;border:1px solid #fce8b2">

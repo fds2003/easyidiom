@@ -9,6 +9,8 @@
     "preview": "vite preview",
     "data": "node ./scripts/gen-data.mjs",
     "translate": "node ./scripts/translate-definitions.mjs",
+    "generate:llms": "node ./scripts/generate-llms-full.mjs",
+    "push:indexnow": "node ./scripts/push-to-indexnow.mjs",
     "test": "vitest",
     "e2e-test": "npx playwright test",
     "e2e-test-watch": "npx playwright-watch test"
